@@ -16,7 +16,9 @@ To run these samples, make sure:
 1. Your development environment is [properly configured](http://developer.wildernesslabs.co/Meadow/Getting_Started/Getting_Started_Meadow.Desktop/Getting_Started_Windows/) to run Meadow apps on Windows.
 2. The sample you wish to run, add the native library (libmpsse.dll) of the FT232H IO Expander depending on your CPU's architecture ([Win32 or x64](Native/Windows/)) to that project and set the **Copy to Output Directory** to `Copy if newer` or `Copy always`
 
-![Copy to Output Directory for libmpsse.dll file](Design/build-action.png)
+<p align="center">
+    <img src="Design/build-action.png" style="width:50%" />
+</p>
 
 3. Rebuild and right-click the project and click on **Set as Startup Project** 
 4. Click **Debug** to run see a Meadow App running on Windows!
