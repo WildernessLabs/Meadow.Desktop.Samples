@@ -6,7 +6,7 @@ Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the 
 
 ## Contents
 - [Windows](#windows)
-    - Pre-requisites
+    - [Pre-requisites](#pre-requisites)
     - [Meadow Windows Samples](#meadow-windows-samples)
 - [Linux](#linux)
     - [Meadow Linux Samples](#meadow-linux-samples)
@@ -80,3 +80,7 @@ Instructions and samples coming soon...
 </table>
 
 ## Support
+
+Having trouble running these samples? 
+* File an [issue](https://github.com/WildernessLabs/Meadow.Desktop.Samples/issues) with a repro case to investigate, and/or
+* Join our [public Slack](http://slackinvite.wildernesslabs.co/), where we have an awesome community helping, sharing and building amazing things using Meadow.
