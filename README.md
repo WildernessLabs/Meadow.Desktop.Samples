@@ -6,6 +6,7 @@ Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the 
 
 ## Contents
 - [Windows](#windows)
+    - Pre-requisites
     - [Meadow Windows Samples](#meadow-windows-samples)
 - [Linux](#linux)
     - [Meadow Linux Samples](#meadow-linux-samples)
@@ -13,16 +14,17 @@ Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the 
 
 ## Windows
 
-To run these samples, make sure:
-1. Your development environment is [properly configured](http://developer.wildernesslabs.co/Meadow/Getting_Started/Getting_Started_Meadow.Desktop/Getting_Started_Windows/) to run Meadow apps on Windows.
-2. The sample you wish to run, add the native library (libmpsse.dll) of the FT232H IO Expander depending on your CPU's architecture ([Win32 or x64](Native/Windows/)) to that project and set the **Copy to Output Directory** to `Copy if newer` or `Copy always`
+### Pre-Requisites
+
+1. Your Windows machine is [properly configured](http://developer.wildernesslabs.co/Meadow/Getting_Started/Getting_Started_Meadow.Desktop/Getting_Started_Windows/) to run Meadow apps projects.
+2. To run a sample that uses an IOExpander like the FT232H, you must add the native library (libmpsse.dll) of the IO Expander that corresponds on your CPU's architecture ([Win32 or x64](Native/Windows/)) to that project and set the **Copy to Output Directory** to `Copy if newer` or `Copy always` as shown below:
 
 <p align="center">
     <img src="Design/build-action.png" style="width:50%" />
 </p>
 
 3. Rebuild and right-click the project and click on **Set as Startup Project** 
-4. Click **Debug** to run see a Meadow App running on Windows!
+4. Click **Debug** when ready to run see a Meadow App running on Windows!
 
 ### Meadow Windows Samples
 
