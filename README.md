@@ -19,7 +19,7 @@ Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the 
 To run these samples, make sure:
 
 1. Your development environment is [properly configured](http://developer.wildernesslabs.co/Meadow/Getting_Started/Getting_Started_Meadow.Desktop/Getting_Started_Windows/) to run Meadow apps on Windows.
-2. The sample you wish to run, add the native library (libmpsse.dll) of the FT232H IO Expander depending on your CPU's architecture ([Win32 or x64](Support Files/FT232H Native Library/)) to that project and set the **Copy to Output Directory** to `Copy if newer` or `Copy always`
+2. The sample you wish to run, add the native library (libmpsse.dll) of the FT232H IO Expander depending on your CPU's architecture ([Win32 or x64](/Support%20Files/Windows/FT232H%20Native%20Library/))  to that project and set the **Copy to Output Directory** to `Copy if newer` or `Copy always`
 
 <p align="center">
     <img src="Design/build-action.png" style="width:50%" />
