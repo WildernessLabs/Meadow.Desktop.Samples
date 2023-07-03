@@ -1,4 +1,6 @@
 Source/Windows/.vs/
+Source/Linux/Blinky/bin/
+Source/Linux/Blinky/obj/
 Source/Windows/Blinky/bin/
 Source/Windows/Blinky/obj/
 Source/Windows/CharacterDisplaySample/bin/
