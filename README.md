@@ -70,6 +70,23 @@ Instructions and samples coming soon...
 <table>
     <tr>
         <td>
+            <img src="Design/blinky.png"/><br/>
+            Control an RGB LED with an FT232H IO Expander</br>
+            <a href="Source/Linux/Blinky/">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/character-display.png"/><br/>
+            Using a Character Display with an FT232H IO Expander</br>
+            <a href="Source/Linux/CharacterDisplaySample/">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/micrographics-intro.png"/><br/>
+            Show weather data on a display with an FT232H IO Expander</br>
+            <a href="Source/Linux/WifiWeather/">Source Code</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         </td>
         <td>

@@ -3,3 +3,4 @@ Source/Linux/*/bin/
 Source/Linux/*/obj/
 Source/Windows/*/bin/
 Source/Windows/*/obj/
+Source/Linux/.vs/
