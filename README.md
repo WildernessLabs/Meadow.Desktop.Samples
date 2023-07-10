@@ -10,6 +10,8 @@ Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the 
     - [Meadow Windows Samples](#meadow-windows-samples)
 - [Linux](#linux)
     - [Meadow Linux Samples](#meadow-linux-samples)
+    - [Pinout Diagrams](#pinout-diagrams)
+        - [Raspberry Pi 4](#raspberry-pi-4)
 - [Support](#support)
 
 ## Windows
@@ -33,17 +35,17 @@ To run these samples, make sure:
 <table>
     <tr>
         <td>
-            <img src="Design/blinky.png"/><br/>
-            Control an RGB LED with an FT232H IO Expander</br>
+            <img src="Design/meadow-windows-blinky.png"/><br/>
+            Running Blinky app with an FT232H IO Expander</br>
             <a href="Source/Windows/Blinky/">Source Code</a>
         </td>
         <td>
-            <img src="Design/character-display.png"/><br/>
+            <img src="Design/meadow-windows-character-display.png"/><br/>
             Using a Character Display with an FT232H IO Expander</br>
             <a href="Source/Windows/CharacterDisplaySample/">Source Code</a>
         </td>
         <td>
-            <img src="Design/micrographics-intro.png"/><br/>
+            <img src="Design/meadow-windows-micrographics-intro.png"/><br/>
             Show weather data on a display with an FT232H IO Expander</br>
             <a href="Source/Windows/WifiWeather/">Source Code</a>
         </td>
@@ -63,24 +65,22 @@ To run these samples, make sure:
 
 ## Linux
 
-Instructions and samples coming soon...
-
 ### Meadow Linux Samples
 
 <table>
     <tr>
         <td>
-            <img src="Design/blinky.png"/><br/>
-            Control an RGB LED with an FT232H IO Expander</br>
+            <img src="Design/meadow-linux-blinky.png"/><br/>
+            Running Blinky app on Meadow.Linux running on a Raspberry Pi</br>
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
-            <img src="Design/character-display.png"/><br/>
-            Using a Character Display with an FT232H IO Expander</br>
+            <img src="Design/template-blue.png"/><br/>
+            Using a Character Display on Meadow.Linux with a Rasperry Pi</br>
             <a href="Source/Linux/CharacterDisplaySample/">Source Code</a>
         </td>
         <td>
-            <img src="Design/micrographics-intro.png"/><br/>
+            <img src="Design/template-orange.png"/><br/>
             Show weather data on a display with an FT232H IO Expander</br>
             <a href="Source/Linux/WifiWeather/">Source Code</a>
         </td>
@@ -97,6 +97,14 @@ Instructions and samples coming soon...
         </td>
     </tr>
 </table>
+
+### Pinout diagrams
+
+#### Raspberry Pi 4
+
+<p align="center">
+    <img src="Design/rpi-pinout.png" style="width:75%" />
+</p>
 
 ## Support
 
