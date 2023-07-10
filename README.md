@@ -71,17 +71,17 @@ To run these samples, make sure:
     <tr>
         <td>
             <img src="Design/meadow-linux-blinky.png"/><br/>
-            Running Blinky app on Meadow.Linux running on a Raspberry Pi</br>
+            Running Blinky on a Raspberry Pi</br>
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-blue.png"/><br/>
-            Using a Character Display on Meadow.Linux with a Rasperry Pi</br>
+            Using a Character Display on a Rasperry Pi</br>
             <a href="Source/Linux/CharacterDisplaySample/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-orange.png"/><br/>
-            Show weather data on a display with an FT232H IO Expander</br>
+            Show weather data on a Rasperry Pi</br>
             <a href="Source/Linux/WifiWeather/">Source Code</a>
         </td>
     </tr>
