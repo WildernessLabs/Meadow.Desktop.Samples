@@ -71,7 +71,7 @@ To run these samples, make sure:
     <tr>
         <td>
             <img src="Design/meadow-linux-blinky.png"/><br/>
-            Running Blinky on a Raspberry Pi</br>
+            Using an RGB LED on a Raspberry Pi</br>
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
