@@ -63,6 +63,14 @@ To run these samples, make sure:
     </tr>
 </table>
 
+### Pinout diagrams
+
+#### FT232H IO Expander
+
+<p align="center">
+    <img src="Design/pinout-ft232h.png" style="width:75%" />
+</p>
+
 ## Linux
 
 ### Meadow Linux Samples
@@ -71,7 +79,7 @@ To run these samples, make sure:
     <tr>
         <td>
             <img src="Design/meadow-linux-blinky.png"/><br/>
-            Using an RGB LED on a Raspberry Pi</br>
+            Using an RGB LED on a Raspberry Pi using Meadow.Linux</br>
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
@@ -98,12 +106,12 @@ To run these samples, make sure:
     </tr>
 </table>
 
-### Pinout diagrams
+### Linux embedded pinout diagrams
 
 #### Raspberry Pi 4
 
 <p align="center">
-    <img src="Design/rpi-pinout.png" style="width:75%" />
+    <img src="Design/pinout-rpi.png" style="width:75%" />
 </p>
 
 ## Support
