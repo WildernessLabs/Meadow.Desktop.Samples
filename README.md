@@ -8,9 +8,11 @@ Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the 
 - [Windows](#windows)
     - [Pre-requisites](#pre-requisites)
     - [Meadow Windows Samples](#meadow-windows-samples)
+    - [IO expander pinout diagrams](#io-expander-pinout-diagrams)
+        - [FT232H IO Expander](#ft232h-io-expander)
 - [Linux](#linux)
     - [Meadow Linux Samples](#meadow-linux-samples)
-    - [Pinout Diagrams](#pinout-diagrams)
+    - [Linux embedded pinout diagrams](#linux-embedded-pinout-diagrams)
         - [Raspberry Pi 4](#raspberry-pi-4)
 - [Support](#support)
 
@@ -63,12 +65,12 @@ To run these samples, make sure:
     </tr>
 </table>
 
-### Pinout diagrams
+### IO expander pinout diagrams
 
 #### FT232H IO Expander
 
 <p align="center">
-    <img src="Design/pinout-ft232h.png" style="width:75%" />
+    <img src="Design/pinout-ft232h.png" style="width:50%" />
 </p>
 
 ## Linux
@@ -79,7 +81,7 @@ To run these samples, make sure:
     <tr>
         <td>
             <img src="Design/meadow-linux-blinky.png"/><br/>
-            Using an RGB LED on a Raspberry Pi using Meadow.Linux</br>
+            Using an RGB LED on a Raspberry Pi running Meadow.Linux</br>
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
