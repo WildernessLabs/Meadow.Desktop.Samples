@@ -2,7 +2,7 @@
 
 # Meadow.Desktop.Samples
 
-Public project samples for Meadow.Windows and Meadow.Linux. Click on any of the projects to open the source code and run it.
+Public project samples for [Meadow.Windows](http://developer.wildernesslabs.co/Meadow/Getting_Started/Getting_Started_Meadow.Desktop/Getting_Started_Windows/) and [Meadow.Linux](http://developer.wildernesslabs.co/Meadow/Getting_Started/Getting_Started_Meadow.Desktop/Getting_Started_Linux/). Click on any of the projects to open the source code and run it.
 
 ## Contents
 - [Windows](#windows)
