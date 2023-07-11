@@ -75,7 +75,7 @@ To run these samples, make sure:
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
-            <img src="Design/template-blue.png"/><br/>
+            <img src="Design/meadow-linux-character-display.png"/><br/>
             Using a Character Display on a Rasperry Pi</br>
             <a href="Source/Linux/CharacterDisplaySample/">Source Code</a>
         </td>

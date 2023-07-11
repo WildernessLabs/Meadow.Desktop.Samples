@@ -1,7 +1,6 @@
 ﻿using Meadow;
-using Meadow.Hardware;
-using Meadow.Pinouts;
 using Meadow.Foundation.Displays.Lcd;
+using Meadow.Pinouts;
 
 public class MeadowApp : App<Linux<RaspberryPi>>
 {
@@ -13,12 +12,12 @@ public class MeadowApp : App<Linux<RaspberryPi>>
 
         display = new CharacterDisplay
             (
-                pinRS: Device.Pins.GPIO27,
-                pinE:  Device.Pins.GPIO27,
-                pinD4: Device.Pins.GPIO27,
-                pinD5: Device.Pins.GPIO27,
-                pinD6: Device.Pins.GPIO27,
-                pinD7: Device.Pins.GPIO27,
+                pinRS: Device.Pins.GPIO21,
+                pinE: Device.Pins.GPIO20,
+                pinD4: Device.Pins.GPIO16,
+                pinD5: Device.Pins.GPIO12,
+                pinD6: Device.Pins.GPIO23,
+                pinD7: Device.Pins.GPIO18,
                 rows: 4, columns: 20
             );
 
