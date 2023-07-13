@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaMeadow", "..\CrossP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiMeadow", "..\CrossPlatform\MauiMeadow\MauiMeadow.csproj", "{FF4DB8E4-8129-4B6B-8564-99004EF78B4D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HMI", "HMI", "{58C4412D-464A-4AB5-ACC8-72B446780173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterTank", "..\CrossPlatform\WaterTank\WaterTank.csproj", "{C3D3880E-205B-4608-8FD0-651FA5EE63AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,18 @@ Global
 		{FF4DB8E4-8129-4B6B-8564-99004EF78B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF4DB8E4-8129-4B6B-8564-99004EF78B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF4DB8E4-8129-4B6B-8564-99004EF78B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D3880E-205B-4608-8FD0-651FA5EE63AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3D3880E-205B-4608-8FD0-651FA5EE63AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3D3880E-205B-4608-8FD0-651FA5EE63AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3D3880E-205B-4608-8FD0-651FA5EE63AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BDE1E908-8072-44A3-8CCE-EB3F3E9B191D} = {58C4412D-464A-4AB5-ACC8-72B446780173}
+		{FF4DB8E4-8129-4B6B-8564-99004EF78B4D} = {58C4412D-464A-4AB5-ACC8-72B446780173}
+		{C3D3880E-205B-4608-8FD0-651FA5EE63AB} = {58C4412D-464A-4AB5-ACC8-72B446780173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3F002EA-1A25-487F-9A5D-93D1E7EC6E31}
