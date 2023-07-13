@@ -37,6 +37,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Displays.Lcd.CharacterDispl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Displays.TftSpi", "..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Displays.TftSpi\Driver\Displays.TftSpi.csproj", "{10B21E9A-DCD1-45A1-BA79-03F58032BF2E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meadow.Maui", "..\..\..\Meadow.Core\source\ui\Meadow.Maui\Meadow.Maui.csproj", "{23D65B27-2B67-481E-A87B-5697A6D0A821}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meadow.Avalonia", "..\..\..\Meadow.Core\source\ui\Meadow.Avalonia\Meadow.Avalonia.csproj", "{33323635-D944-467C-8B54-08D7427EA4C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sensors.Distance.Vl53l0x", "..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Sensors.Distance.Vl53l0x\Driver\Sensors.Distance.Vl53l0x.csproj", "{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sensors.Distance.MaxBotix", "..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Sensors.Distance.MaxBotix\Driver\Sensors.Distance.MaxBotix.csproj", "{EB403505-EB05-4402-AAFE-7682ED28020B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +121,26 @@ Global
 		{10B21E9A-DCD1-45A1-BA79-03F58032BF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10B21E9A-DCD1-45A1-BA79-03F58032BF2E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10B21E9A-DCD1-45A1-BA79-03F58032BF2E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{23D65B27-2B67-481E-A87B-5697A6D0A821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D65B27-2B67-481E-A87B-5697A6D0A821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D65B27-2B67-481E-A87B-5697A6D0A821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D65B27-2B67-481E-A87B-5697A6D0A821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33323635-D944-467C-8B54-08D7427EA4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33323635-D944-467C-8B54-08D7427EA4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33323635-D944-467C-8B54-08D7427EA4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33323635-D944-467C-8B54-08D7427EA4C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EB403505-EB05-4402-AAFE-7682ED28020B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB403505-EB05-4402-AAFE-7682ED28020B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB403505-EB05-4402-AAFE-7682ED28020B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EB403505-EB05-4402-AAFE-7682ED28020B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB403505-EB05-4402-AAFE-7682ED28020B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB403505-EB05-4402-AAFE-7682ED28020B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +158,10 @@ Global
 		{968F6BFA-96F0-48C9-84B8-B629F8612E00} = {A809F07D-DD94-4375-8776-23FBE73591A5}
 		{A3679ECB-BBE3-4CC3-BEB7-14B492476EF6} = {A809F07D-DD94-4375-8776-23FBE73591A5}
 		{10B21E9A-DCD1-45A1-BA79-03F58032BF2E} = {A809F07D-DD94-4375-8776-23FBE73591A5}
+		{23D65B27-2B67-481E-A87B-5697A6D0A821} = {A809F07D-DD94-4375-8776-23FBE73591A5}
+		{33323635-D944-467C-8B54-08D7427EA4C8} = {A809F07D-DD94-4375-8776-23FBE73591A5}
+		{9FB83E65-471A-42E1-BAE1-7F7B6C14828D} = {A809F07D-DD94-4375-8776-23FBE73591A5}
+		{EB403505-EB05-4402-AAFE-7682ED28020B} = {A809F07D-DD94-4375-8776-23FBE73591A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3F002EA-1A25-487F-9A5D-93D1E7EC6E31}

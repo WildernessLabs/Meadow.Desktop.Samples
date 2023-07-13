@@ -42,13 +42,14 @@
 		</Canvas>
 
 		<Slider
+			IsVisible="{Binding UseSimulator}"
 			Grid.Row="0"
 			Grid.Column="1"
 			Orientation="Vertical"
 			Minimum="0"
 			Maximum="100"
 			Height="{Binding TankHeight}"
-			Value="{Binding FillPercentage}"
+			Value="{Binding SliderPercentage}"
 			>
 			
 		</Slider>
