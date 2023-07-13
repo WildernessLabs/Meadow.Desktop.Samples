@@ -6,28 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="w_clear.jpg" />
-    <None Remove="w_cloudy.jpg" />
-    <None Remove="w_drizzle.jpg" />
-    <None Remove="w_misc.jpg" />
-    <None Remove="w_rain.jpg" />
-    <None Remove="w_snow.jpg" />
-    <None Remove="w_storm.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="w_clear.jpg" />
-    <EmbeddedResource Include="w_cloudy.jpg" />
-    <EmbeddedResource Include="w_drizzle.jpg" />
-    <EmbeddedResource Include="w_misc.jpg" />
-    <EmbeddedResource Include="w_rain.jpg" />
-    <EmbeddedResource Include="w_snow.jpg" />
-    <EmbeddedResource Include="w_storm.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="*" />
-    <PackageReference Include="SimpleJpegDecoder" Version="*" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\Meadow.Core\source\implementations\windows\Meadow.Windows\Meadow.Windows.csproj" />
     <ProjectReference Include="..\..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Displays.TftSpi\Driver\Displays.TftSpi.csproj" />
     <ProjectReference Include="..\..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\ICs.IOExpanders.Ft232h\Driver\ICs.IOExpanders.Ft232h.csproj" />
