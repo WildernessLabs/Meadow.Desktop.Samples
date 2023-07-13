@@ -24,20 +24,20 @@
 			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="600" />
+			<RowDefinition Height="{Binding TankHeight}" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
 
 		<Canvas
 			Grid.Row="0"
-			Height="600"
+			Height="{Binding TankHeight}"
 			Grid.Column="0"
 			Background="Black">
 			<Rectangle
 				Fill="Blue"
 				Width="200"
-				Height="300"
-				Canvas.Top="300"
+				Height="{Binding FillHeight}"
+				Canvas.Top="{Binding WaterTop}"
 				/>
 		</Canvas>
 
@@ -45,7 +45,10 @@
 			Grid.Row="0"
 			Grid.Column="1"
 			Orientation="Vertical"
-			Value="50"
+			Minimum="0"
+			Maximum="100"
+			Height="{Binding TankHeight}"
+			Value="{Binding FillPercentage}"
 			>
 			
 		</Slider>
