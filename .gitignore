@@ -6,3 +6,4 @@ Source/Windows/*/obj/
 Source/Linux/.vs/
 bin/
 obj/
+Source/CrossPlatform/DevCamp_Avalonia_Sample/.vs/
