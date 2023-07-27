@@ -7,9 +7,7 @@ Public project samples for [Meadow.Windows](http://developer.wildernesslabs.co/M
 ## Contents
 - [Windows](#windows)
     - [Pre-requisites](#pre-requisites)
-    - [Meadow Windows Samples](#meadowwindows-samples)
-    - [IO expander pinout diagrams](#io-expander-pinout-diagrams)
-        - [FT232H IO Expander](#ft232h-io-expander)
+    - [Meadow.Windows Samples](#meadowwindows-samples)
 - [Linux](#linux)
     - [Meadow Linux Samples](#meadowlinux-samples)
     - [Linux embedded pinout diagrams](#linux-embedded-pinout-diagrams)
