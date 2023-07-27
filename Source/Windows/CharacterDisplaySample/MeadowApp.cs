@@ -4,27 +4,24 @@ using Meadow.Foundation.ICs.IOExpanders;
 
 public class MeadowApp : App<Windows>
 {
-    private Ft232h? _expander;
     private CharacterDisplay? display;
 
     public override Task Initialize()
     {
         Console.WriteLine("Creating Outputs");
 
-        _expander = new Ft232h();
+        var expander = new Ft232h();
 
         display = new CharacterDisplay
             (
-                pinRS: _expander.Pins.C5,
-                pinE: _expander.Pins.C4,
-                pinD4: _expander.Pins.C3,
-                pinD5: _expander.Pins.C2,
-                pinD6: _expander.Pins.C1,
-                pinD7: _expander.Pins.C0,
+                pinRS: expander.Pins.C5,
+                pinE: expander.Pins.C4,
+                pinD4: expander.Pins.C3,
+                pinD5: expander.Pins.C2,
+                pinD6: expander.Pins.C1,
+                pinD7: expander.Pins.C0,
                 rows: 4, columns: 20
             );
-
-        display.Write("Hello Meadow!");
 
         return Task.CompletedTask;
     }

@@ -7,22 +7,20 @@ using WifiWeather.Views;
 
 public class MeadowApp : App<Windows>
 {
-    private Ft232h _expander;
     private DisplayView _displayController;
-    //private MicroGraphics _graphics;
 
     public override Task Initialize()
     {
         Console.WriteLine("Creating Outputs");
 
-        _expander = new Ft232h();
+        var expander = new Ft232h();
 
         var display = new Ili9488
         (
-            spiBus: _expander.CreateSpiBus(),
-            chipSelectPin: _expander.Pins.C0,
-            dcPin: _expander.Pins.C2,
-            resetPin: _expander.Pins.C1
+            spiBus: expander.CreateSpiBus(),
+            chipSelectPin: expander.Pins.C0,
+            dcPin: expander.Pins.C2,
+            resetPin: expander.Pins.C1
         );
 
         _displayController = new DisplayView();

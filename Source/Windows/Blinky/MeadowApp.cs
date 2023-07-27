@@ -4,18 +4,18 @@ using Meadow.Foundation.Leds;
 
 public class MeadowApp : App<Windows>
 {
-    private Ft232h _expander = new Ft232h();
-
     RgbLed rgbLed;
 
     public override Task Initialize()
     {
         Console.WriteLine("Creating Outputs");
 
+        var expander = new Ft232h();
+
         rgbLed = new RgbLed(
-            _expander.Pins.C2,
-            _expander.Pins.C1,
-            _expander.Pins.C0);
+            expander.Pins.C2,
+            expander.Pins.C1,
+            expander.Pins.C0);
 
         return Task.CompletedTask;
     }
