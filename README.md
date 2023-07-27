@@ -61,7 +61,7 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
     <tr>
         <td>
             <img src="Design/meadow-windows-cube.jpg"/><br/>
-            Run MicroGraphics on Windows using WinForms</br>
+            Run MicroGraphics on Windows using Meadow.WinForms</br>
             <a href="Source/Windows/Max7219/">Source Code</a>
         </td>
         <td>
@@ -71,7 +71,7 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
         </td>
         <td>
             <img src="Design/template-orange.png"/><br/>
-            Show number of clicks on a ST7789 display with Meadow.Avalonia</br>
+            Show number of clicks on a display with Meadow.Avalonia</br>
             <a href="Source/Windows/WifiWeather/">Source Code</a>
         </td>
     </tr>
