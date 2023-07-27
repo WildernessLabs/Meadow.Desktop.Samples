@@ -7,11 +7,11 @@ Public project samples for [Meadow.Windows](http://developer.wildernesslabs.co/M
 ## Contents
 - [Windows](#windows)
     - [Pre-requisites](#pre-requisites)
-    - [Meadow Windows Samples](#meadow-windows-samples)
+    - [Meadow Windows Samples](#meadowwindows-samples)
     - [IO expander pinout diagrams](#io-expander-pinout-diagrams)
         - [FT232H IO Expander](#ft232h-io-expander)
 - [Linux](#linux)
-    - [Meadow Linux Samples](#meadow-linux-samples)
+    - [Meadow Linux Samples](#meadowlinux-samples)
     - [Linux embedded pinout diagrams](#linux-embedded-pinout-diagrams)
         - [Raspberry Pi 4](#raspberry-pi-4)
 - [Support](#support)
@@ -38,7 +38,7 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
 3. Rebuild and right-click the project and click on **Set as Startup Project** 
 4. Click **Debug** to run see a Meadow App running on Windows!
 
-### Meadow Windows Samples
+### Meadow.Windows Samples
 
 <table>
     <tr>
@@ -90,23 +90,23 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
 
 ## Linux
 
-### Meadow Linux Samples
+### Meadow.Linux Samples
 
 <table>
     <tr>
         <td>
             <img src="Design/meadow-linux-blinky.png"/><br/>
-            Using an RGB LED on a Raspberry Pi running Meadow.Linux</br>
+            Running Blinky app on a Raspberry Pi with Meadow.Linux</br>
             <a href="Source/Linux/Blinky/">Source Code</a>
         </td>
         <td>
             <img src="Design/meadow-linux-character-display.png"/><br/>
-            Using a Character Display on a Raspberry Pi</br>
+            Using a LCD Display on a Raspberry Pi with Meadow.Linux</br>
             <a href="Source/Linux/CharacterDisplaySample/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-orange.png"/><br/>
-            Show weather data on a Raspberry Pi</br>
+            Build a weather widget on a Raspberry Pi w/ Meadow.Linux</br>
             <a href="Source/Linux/WifiWeather/">Source Code</a>
         </td>
     </tr>
