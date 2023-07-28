@@ -1,4 +1,6 @@
-﻿namespace MauiMeadow
+﻿using MauiMeadow.ViewModels;
+
+namespace MauiMeadow
 {
     public partial class MainPage : ContentPage
     {
@@ -7,6 +9,7 @@
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new BaseViewModel();
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

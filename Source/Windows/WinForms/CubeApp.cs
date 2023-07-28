@@ -10,6 +10,9 @@ namespace Meadow
 {
     public class CubeApp : App<Windows>
     {
+        Color backgroundColor = Color.FromHex("91E46C");
+        Color foregroundColor = Color.FromHex("000000");
+
         private MicroGraphics _graphics = default!;
         private WinFormsDisplay _display = default!;
 
@@ -25,7 +28,7 @@ namespace Meadow
         {
             _ = Task.Run(() =>
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 Show3dCube();
             });
 
@@ -49,7 +52,11 @@ namespace Meadow
                  { -cubeSize,  cubeSize, -cubeSize},
             };
 
-            _graphics = new MicroGraphics(_display);
+            _graphics = new MicroGraphics(_display)
+            {
+                CurrentFont = new Font12x20(),
+                Stroke = 5
+            };
 
             return base.Initialize();
         }
@@ -65,16 +72,14 @@ namespace Meadow
             var start = 0;
             string frameRate = "";
 
-            _graphics.CurrentFont = new Font12x20();
             start = Environment.TickCount;
 
             while (true)
             {
-
                 _display.Invoke(() =>
                 {
-                    _graphics.Clear();
-                    _graphics.DrawText(5, 5, frameRate, Color.Red);
+                    _graphics.Clear(backgroundColor);
+                    _graphics.DrawText(5, 5, frameRate, foregroundColor);
 
                     angle++;
                     for (int i = 0; i < 8; i++)
@@ -130,24 +135,24 @@ namespace Meadow
 
         void DrawWireframe()
         {
-            _graphics.DrawLine(cubeWireframe[0, 0], cubeWireframe[0, 1], cubeWireframe[1, 0], cubeWireframe[1, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[1, 0], cubeWireframe[1, 1], cubeWireframe[2, 0], cubeWireframe[2, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[2, 0], cubeWireframe[2, 1], cubeWireframe[3, 0], cubeWireframe[3, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[3, 0], cubeWireframe[3, 1], cubeWireframe[0, 0], cubeWireframe[0, 1], Color.White);
+            _graphics.DrawLine(cubeWireframe[0, 0], cubeWireframe[0, 1], cubeWireframe[1, 0], cubeWireframe[1, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[1, 0], cubeWireframe[1, 1], cubeWireframe[2, 0], cubeWireframe[2, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[2, 0], cubeWireframe[2, 1], cubeWireframe[3, 0], cubeWireframe[3, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[3, 0], cubeWireframe[3, 1], cubeWireframe[0, 0], cubeWireframe[0, 1], foregroundColor);
 
             //cross face above
-            _graphics.DrawLine(cubeWireframe[1, 0], cubeWireframe[1, 1], cubeWireframe[3, 0], cubeWireframe[3, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[0, 0], cubeWireframe[0, 1], cubeWireframe[2, 0], cubeWireframe[2, 1], Color.White);
+            _graphics.DrawLine(cubeWireframe[1, 0], cubeWireframe[1, 1], cubeWireframe[3, 0], cubeWireframe[3, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[0, 0], cubeWireframe[0, 1], cubeWireframe[2, 0], cubeWireframe[2, 1], foregroundColor);
 
-            _graphics.DrawLine(cubeWireframe[4, 0], cubeWireframe[4, 1], cubeWireframe[5, 0], cubeWireframe[5, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[5, 0], cubeWireframe[5, 1], cubeWireframe[6, 0], cubeWireframe[6, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[6, 0], cubeWireframe[6, 1], cubeWireframe[7, 0], cubeWireframe[7, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[7, 0], cubeWireframe[7, 1], cubeWireframe[4, 0], cubeWireframe[4, 1], Color.White);
+            _graphics.DrawLine(cubeWireframe[4, 0], cubeWireframe[4, 1], cubeWireframe[5, 0], cubeWireframe[5, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[5, 0], cubeWireframe[5, 1], cubeWireframe[6, 0], cubeWireframe[6, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[6, 0], cubeWireframe[6, 1], cubeWireframe[7, 0], cubeWireframe[7, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[7, 0], cubeWireframe[7, 1], cubeWireframe[4, 0], cubeWireframe[4, 1], foregroundColor);
 
-            _graphics.DrawLine(cubeWireframe[0, 0], cubeWireframe[0, 1], cubeWireframe[4, 0], cubeWireframe[4, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[1, 0], cubeWireframe[1, 1], cubeWireframe[5, 0], cubeWireframe[5, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[2, 0], cubeWireframe[2, 1], cubeWireframe[6, 0], cubeWireframe[6, 1], Color.White);
-            _graphics.DrawLine(cubeWireframe[3, 0], cubeWireframe[3, 1], cubeWireframe[7, 0], cubeWireframe[7, 1], Color.White);
+            _graphics.DrawLine(cubeWireframe[0, 0], cubeWireframe[0, 1], cubeWireframe[4, 0], cubeWireframe[4, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[1, 0], cubeWireframe[1, 1], cubeWireframe[5, 0], cubeWireframe[5, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[2, 0], cubeWireframe[2, 1], cubeWireframe[6, 0], cubeWireframe[6, 1], foregroundColor);
+            _graphics.DrawLine(cubeWireframe[3, 0], cubeWireframe[3, 1], cubeWireframe[7, 0], cubeWireframe[7, 1], foregroundColor);
         }
     }
 }

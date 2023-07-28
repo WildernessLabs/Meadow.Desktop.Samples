@@ -51,12 +51,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Meadow.Foundation.ICs.IOExpanders.Ft232h" Version="1.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\..\Meadow.Core\source\ui\Meadow.Maui\Meadow.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Displays.ePaperWaveShare\Driver\Displays.ePaperWaveShare.csproj" />
+	  <ProjectReference Include="..\..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\ICs.IOExpanders.Ft232h\Driver\ICs.IOExpanders.Ft232h.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="libmpsse.dll">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

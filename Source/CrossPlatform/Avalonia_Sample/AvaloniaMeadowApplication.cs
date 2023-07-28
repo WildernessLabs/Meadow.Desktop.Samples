@@ -2,6 +2,7 @@
 using Avalonia.Threading;
 using Meadow;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,6 +14,8 @@ namespace AvaloniaMeadow
         public CancellationToken CancellationToken => throw new NotImplementedException();
 
         public static T Device => Resolver.Services.Get<IMeadowDevice>() as T;
+
+        public Dictionary<string, string> Settings => new Dictionary<string, string>();
 
         protected AvaloniaMeadowApplication()
         {
