@@ -60,17 +60,13 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
         <td>
             <img src="Design/meadow-windows-cube.jpg"/><br/>
             Run MicroGraphics on Windows using Meadow.WinForms</br>
-            <a href="Source/Windows/Max7219/">Source Code</a>
+            <a href="Source/Windows/WinForms/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-blue.png"/><br/>
-            Show environmental data from XXXXXX sensor on a MAUI app</br>
-            <a href="Source/Windows/CharacterDisplaySample/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-orange.png"/><br/>
-            Show number of clicks on a display with Meadow.Avalonia</br>
-            <a href="Source/Windows/WifiWeather/">Source Code</a>
         </td>
     </tr>
     <tr>
