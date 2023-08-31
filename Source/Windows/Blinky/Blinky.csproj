@@ -6,8 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Meadow.Foundation.ICs.IOExpanders.Ft232h" Version="1.*" />
-        <PackageReference Include="Meadow.Windows" Version="1.*" />
+    <PackageReference Include="Meadow.Windows" Version="*" />
+    <PackageReference Include="Meadow.Foundation.ICs.IOExpanders.Ft232h" Version="*" />
     </ItemGroup>
     <ItemGroup>
       <None Update="libmpsse.dll">
