@@ -4,7 +4,9 @@ using AvaloniaMeadow.ViewModels;
 using AvaloniaMeadow.Views;
 using Meadow;
 using Meadow.Foundation.Displays;
+using Meadow.Foundation.Graphics;
 using Meadow.Foundation.ICs.IOExpanders;
+using Meadow.Peripherals.Displays;
 using Meadow.UI;
 using System.Threading.Tasks;
 
@@ -35,7 +37,7 @@ namespace AvaloniaMeadow
         public override Task MeadowInitialize()
         {
             var expander = new Ft232h();
-
+            
             var display = new Gc9a01
             (
                 spiBus: expander.CreateSpiBus(),
@@ -44,7 +46,7 @@ namespace AvaloniaMeadow
                 resetPin: expander.Pins.C2
             );
 
-            Resolver.Services.Add(display);
+            Resolver.Services.Add<IGraphicsDisplay>(display);
 
             return Task.CompletedTask;
         }

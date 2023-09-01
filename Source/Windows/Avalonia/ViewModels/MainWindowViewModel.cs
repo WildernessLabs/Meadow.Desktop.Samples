@@ -14,7 +14,7 @@ namespace AvaloniaMeadow.ViewModels
     {
         private MicroGraphics graphics;
 
-        private Gc9a01? _display;
+        private IGraphicsDisplay _display;
 
         private string _buttonText;
 
@@ -40,7 +40,7 @@ namespace AvaloniaMeadow.ViewModels
         {
             while (_display == null)
             {
-                _display = Resolver.Services.Get<Gc9a01>();
+                _display = Resolver.Services.Get<IGraphicsDisplay>();
                 await Task.Delay(100);
             }
 
