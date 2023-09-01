@@ -2,6 +2,7 @@
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="false"
     x:Class="MauiMeadow.MainPage"
     BackgroundColor="#10485E">
 
@@ -24,7 +25,7 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Control a micro servo using Meadow.Foundation using MAUI"
+                Text="Press the button below and see the counter go up!"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
@@ -33,6 +34,7 @@
             <Button
                 x:Name="CounterBtn"
                 Text="Click me"
+                FontSize="Large"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
