@@ -3,7 +3,8 @@ using Avalonia.Markup.Xaml;
 using AvaloniaMeadow.ViewModels;
 using AvaloniaMeadow.Views;
 using Meadow;
-using Meadow.Hardware;
+using Meadow.Foundation.Displays;
+using Meadow.Foundation.ICs.IOExpanders;
 using Meadow.UI;
 using System.Threading.Tasks;
 
@@ -33,9 +34,17 @@ namespace AvaloniaMeadow
 
         public override Task MeadowInitialize()
         {
-            var ft = new Meadow.Foundation.ICs.IOExpanders.Ft232h();
-            var led = ft.Pins.C0.CreateDigitalOutputPort(false);
-            Resolver.Services.Add(led);
+            var expander = new Ft232h();
+
+            var display = new Gc9a01
+            (
+                spiBus: expander.CreateSpiBus(),
+                chipSelectPin: expander.Pins.C0,
+                dcPin: expander.Pins.C1,
+                resetPin: expander.Pins.C2
+            );
+
+            Resolver.Services.Add(display);
 
             return Task.CompletedTask;
         }
