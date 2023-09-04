@@ -65,7 +65,7 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
         <td>
             <img src="Design/wildernesslabs-meadow-windows-maui.png"/><br/>
             Build hardware apps using Meadow within a MAUI app</br>
-            <a href="Source/Windows/WinForms/">Source Code</a>
+            <a href="Source/Windows/MauiMeadow/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-orange.png"/><br/>
