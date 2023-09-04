@@ -4,40 +4,37 @@
     xmlns:vm="using:AvaloniaMeadow.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
     x:Class="AvaloniaMeadow.Views.MainWindow"
     Icon="/Assets/avalonia-logo.ico"
+    Background="#23ABE3"
     Title="Meadow in Avalonia">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        
+    <StackPanel
+        Background="Red"
+        Orientation="Vertical"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+                
         <TextBlock 
-            Grid.Row="0"
-            Text="Meadow in Avalonia" 
+            Text="Hello, Meadow" 
             HorizontalAlignment="Center" 
-            Margin="0,10"
-            FontSize="60"
-            FontWeight="Bold"
-            VerticalAlignment="Center"/>
+            Foreground="White"
+            FontSize="32" />
+
+        <TextBlock
+            Text="Press the button below and see the counter go up!"
+            HorizontalAlignment="Center"
+            Foreground="White"
+            FontSize="18" />
 
         <Button
+            Foreground="Red" 
+            Background="White"
+            FontSize="18"
             Command="{Binding LedCommand}"
-            Grid.Row="1"
-            Margin="0,10"
-            Height="200"
-            Width="400"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Top">
-
-            <TextBlock
-                TextAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="40"
-                Text="{Binding ButtonText}" />
+            HorizontalAlignment="Center">
+            Click Me!
         </Button>
-    </Grid>
+    </StackPanel>
 </Window>
