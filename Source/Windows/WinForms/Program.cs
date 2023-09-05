@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using Meadow;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Meadow
+namespace WinFormsMeadow
 {
-    public class GtkSample
+    public class Program
     {
         public static async Task Main(string[] args)
         {
@@ -13,6 +14,5 @@ namespace Meadow
 
             await MeadowOS.Start(args);
         }
-
     }
 }
