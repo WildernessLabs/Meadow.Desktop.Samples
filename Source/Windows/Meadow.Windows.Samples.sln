@@ -79,7 +79,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RTCs.Ds1307", "..\..\..\Mea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Displays.Max7219", "..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Displays.Max7219\Driver\Displays.Max7219.csproj", "{4549C8C8-FF63-46DC-BB7D-6F552ED82BF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinForms", "WinForms\WinForms.csproj", "{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsMeadow", "WinForms\WinFormsMeadow.csproj", "{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Displays.WinForms", "..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Peripherals\Displays.WinForms\Driver\Displays.WinForms.csproj", "{5CD6458A-9417-4523-88F5-30FBF51FA262}"
 EndProject

@@ -18,6 +18,8 @@ namespace AvaloniaMeadow.ViewModels
 
         private string _buttonText;
 
+        public int Counter { get; set; } = -1;
+
         public ReactiveCommand<Unit, Unit> LedCommand { get; }
 
         public string ButtonText
@@ -29,7 +31,7 @@ namespace AvaloniaMeadow.ViewModels
         public MainWindowViewModel()
         {
             ButtonText = "Initializing...";
-            //LedCommand = ReactiveCommand.Create(ToggleLed);
+            LedCommand = ReactiveCommand.Create(UpdateCounter);
 
             // since Avalonia and Meadow are both starting at the same time, we must wait
             // for MeadowInitialize to complete before the output port is ready
@@ -51,25 +53,48 @@ namespace AvaloniaMeadow.ViewModels
                 Rotation = RotationType._180Degrees
             };
 
-            graphics.Clear(Meadow.Foundation.Color.Red);
-
-            graphics.Show();
+            UpdateCounter();
 
             ButtonText = "Turn LED On";
         }
 
-        //private void ToggleLed()
-        //{
-        //    if (_led == null) return;
-        //    _led.State = !_led.State;
-        //    if (_led.State)
-        //    {
-        //        ButtonText = "Turn LED Off";
-        //    }
-        //    else
-        //    {
-        //        ButtonText = "Turn LED On";
-        //    }
-        //}
+        public void UpdateCounter()
+        {
+            Counter++;
+
+            graphics.DrawRectangle(
+                x: 0,
+                y: 0,
+                width: graphics.Width,
+                height: graphics.Height,
+                color: Meadow.Foundation.Color.FromHex("10485E"),
+                filled: true);
+
+            graphics.DrawText(
+                x: graphics.Width / 2,
+                y: graphics.Height / 4 + 10,
+                text: $"Clicked",
+                scaleFactor: ScaleFactor.X2,
+                alignmentH: HorizontalAlignment.Center,
+                alignmentV: VerticalAlignment.Center);
+
+            graphics.DrawText(
+                x: graphics.Width / 2,
+                y: graphics.Height / 2,
+                text: $"{Counter}",
+                scaleFactor: ScaleFactor.X3,
+                alignmentH: HorizontalAlignment.Center,
+                alignmentV: VerticalAlignment.Center);
+
+            graphics.DrawText(
+                x: graphics.Width / 2,
+                y: graphics.Height * 3 / 4 - 10,
+                text: $"Times!",
+                scaleFactor: ScaleFactor.X2,
+                alignmentH: HorizontalAlignment.Center,
+                alignmentV: VerticalAlignment.Center);
+
+            graphics.Show();
+        }
     }
 }

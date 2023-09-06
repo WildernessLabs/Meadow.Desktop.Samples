@@ -41,29 +41,31 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
 <table>
     <tr>
         <td>
-            <img src="Design/meadow-windows-blinky.png"/><br/>
+            <img src="Design/wildernesslabs-meadow-windows-blinky.png"/><br/>
             Running Blinky app with an FT232H IO Expander</br>
             <a href="https://www.hackster.io/wilderness-labs/run-meadow-apps-directly-from-your-pc-using-meadow-windows-dab4bf">Hackster</a> | <a href="Source/Windows/Blinky/">Source Code</a>
         </td>
         <td>
-            <img src="Design/meadow-windows-character-display.png"/><br/>
+            <img src="Design/wildernesslabs-meadow-windows-characterdisplay.png"/><br/>
             Using a Character Display with an FT232H IO Expander</br>
             <a href="https://www.hackster.io/wilderness-labs/control-an-lcd-display-with-your-pc-using-meadow-windows-186c6d">Hackster</a> | <a href="Source/Windows/CharacterDisplaySample/">Source Code</a>
         </td>
         <td>
-            <img src="Design/meadow-windows-micrographics-intro.png"/><br/>
+            <img src="Design/wildernesslabs-meadow-windows-graphics.png"/><br/>
             Show weather data on a display with an FT232H IO Expander</br>
             <a href="https://www.hackster.io/wilderness-labs/build-this-weather-widget-running-directly-from-your-pc-57c69f">Hackster</a> | <a href="Source/Windows/WifiWeather/">Source Code</a>
         </td>
     </tr>
     <tr>
         <td>
-            <img src="Design/meadow-windows-cube.jpg"/><br/>
+            <img src="Design/wildernesslabs-meadow-windows-winforms.jpg"/><br/>
             Run MicroGraphics on Windows using Meadow.WinForms</br>
-            <a href="Source/Windows/WinForms/">Source Code</a>
+            <a href="https://www.hackster.io/wilderness-labs/run-meadow-micrographics-on-winforms-directly-from-your-pc-db875b">Hackster</a> | <a href="Source/Windows/WinForms/">Source Code</a>
         </td>
         <td>
-            <img src="Design/template-blue.png"/><br/>
+            <img src="Design/wildernesslabs-meadow-windows-maui.png"/><br/>
+            Build hardware apps using Meadow within a MAUI app</br>
+            <a href="Source/Windows/MauiMeadow/">Source Code</a>
         </td>
         <td>
             <img src="Design/template-orange.png"/><br/>
