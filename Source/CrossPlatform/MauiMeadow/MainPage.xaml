@@ -2,42 +2,61 @@
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="false"
     x:Class="MauiMeadow.MainPage"
-    BackgroundColor="#10485E">
+    >
 
-    <ScrollView>
+    <Border
+        BackgroundColor="#1A80AA"
+        Stroke="White"
+        StrokeThickness="5">
         <VerticalStackLayout
-            Spacing="25"
+            Spacing="30"
             Padding="30,0"
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                Source="meadow.png"
+                HeightRequest="200" 
+                HorizontalOptions="Center">
+                <Image.Shadow>
+                    <Shadow Brush="Black"
+                        Offset="-20,20"
+                        Radius="30"
+                        Opacity="0.25" />
+                </Image.Shadow>
+            </Image>
 
             <Label
-                Text="Hello, Meadow!"
+                Text="Meadow on MAUI"
+                TextColor="White"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Control a micro servo using Meadow.Foundation using MAUI"
+                Text="Click the button and see the counter go up!"
+                TextColor="White"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
+                FontSize="22"
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
                 Text="Click me"
+                FontSize="Large"
+                Background="#23ABE3"
+                TextColor="White"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                Command="{Binding CountCommand}"
+                HorizontalOptions="Center">
+                <Button.Shadow>
+                    <Shadow Brush="Black"
+                        Offset="-5,5"
+                        Radius="20"
+                        Opacity="0.25" />
+                </Button.Shadow>
+            </Button>
 
         </VerticalStackLayout>
-    </ScrollView>
-
+    </Border>
 </ContentPage>

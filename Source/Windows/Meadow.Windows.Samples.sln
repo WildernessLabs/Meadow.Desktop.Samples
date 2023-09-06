@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPI", "SPI\SPI.csproj", "{A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkBasics", "NetworkBasics\NetworkBasics.csproj", "{24B33019-6D9D-476C-94AE-7273C9A6B470}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinForms", "WinForms\WinForms.csproj", "{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsMeadow", "WinForms\WinFormsMeadow.csproj", "{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaMeadow", "Avalonia\AvaloniaMeadow.csproj", "{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +96,10 @@ Global
 		{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +118,7 @@ Global
 		{A78139FD-A90C-4F6E-820E-76274205E8A2} = {5F778622-158A-49D8-B9DC-8B814E1CFD71}
 		{24B33019-6D9D-476C-94AE-7273C9A6B470} = {41090F56-F79B-44A1-BD13-2C6305A08D7D}
 		{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68} = {58C4412D-464A-4AB5-ACC8-72B446780173}
+		{61E745AB-452C-433E-AAAC-C06DA6A9CA0A} = {58C4412D-464A-4AB5-ACC8-72B446780173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3F002EA-1A25-487F-9A5D-93D1E7EC6E31}

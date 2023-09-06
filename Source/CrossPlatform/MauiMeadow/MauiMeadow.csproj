@@ -56,7 +56,8 @@
 
 	<ItemGroup>
     <PackageReference Include="Meadow.Maui" Version="*" />
-    <PackageReference Include="Meadow.Foundation.Displays.ePaperWaveShare" Version="*" />
+    <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="*" />
     <PackageReference Include="Meadow.Foundation.ICs.IOExpanders.Ft232h" Version="*" />
 	</ItemGroup>
 

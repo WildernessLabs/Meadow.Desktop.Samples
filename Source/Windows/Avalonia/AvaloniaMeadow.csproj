@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaXaml Remove="Models\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
     <None Remove=".gitignore" />
+    <None Remove="Assets\meadow.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +33,7 @@
   <ItemGroup>
     <PackageReference Include="Meadow.Windows" Version="*" />
     <PackageReference Include="Meadow.Avalonia" Version="*" />
+    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="*" />
     <PackageReference Include="Meadow.Foundation.ICs.IOExpanders.Ft232h" Version="*" />
   </ItemGroup>
 

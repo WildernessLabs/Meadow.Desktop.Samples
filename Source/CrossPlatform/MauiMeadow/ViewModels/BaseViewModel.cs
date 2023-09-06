@@ -3,24 +3,31 @@ using Meadow.Foundation.Graphics;
 using Meadow.Foundation.ICs.IOExpanders;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace MauiMeadow.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        private Ft232h _expander;
         private MicroGraphics graphics;
+
+        public ICommand CountCommand { get; set; }
+
+        public int Counter { get; set; } = -1;
 
         public BaseViewModel()
         {
-            _expander = new Ft232h();
+            CountCommand = new Command(UpdateCounter);
 
-            var display = new Epd4in2bV2(
-                spiBus: _expander.CreateSpiBus(),
-                chipSelectPin: _expander.Pins.C0,
-                dcPin: _expander.Pins.C1,
-                resetPin: _expander.Pins.C2,
-                busyPin: _expander.Pins.C3);
+            var expander = new Ft232h();
+
+            var display = new Gc9a01
+            (
+                spiBus: expander.CreateSpiBus(),
+                chipSelectPin: expander.Pins.C0,
+                dcPin: expander.Pins.C1,
+                resetPin: expander.Pins.C2
+            );
 
             graphics = new MicroGraphics(display)
             {
@@ -29,9 +36,44 @@ namespace MauiMeadow.ViewModels
                 Rotation = RotationType._180Degrees
             };
 
-            graphics.Clear();
+            UpdateCounter();
+        }
 
-            graphics.DrawText(10, 10, "Hello Meadow!!! ");
+        public void UpdateCounter()
+        {
+            Counter++;
+
+            graphics.DrawRectangle(
+                x: 0,
+                y: 0,
+                width: graphics.Width,
+                height: graphics.Height,
+                color: Meadow.Foundation.Color.FromHex("10485E"),
+                filled: true);
+
+            graphics.DrawText(
+                x: graphics.Width / 2,
+                y: graphics.Height / 4 + 10,
+                text: $"Clicked",
+                scaleFactor: ScaleFactor.X2,
+                alignmentH: Meadow.Foundation.Graphics.HorizontalAlignment.Center,
+                alignmentV: Meadow.Foundation.Graphics.VerticalAlignment.Center);
+
+            graphics.DrawText(
+                x: graphics.Width / 2,
+                y: graphics.Height / 2,
+                text: $"{Counter}",
+                scaleFactor: ScaleFactor.X3,
+                alignmentH: Meadow.Foundation.Graphics.HorizontalAlignment.Center,
+                alignmentV: Meadow.Foundation.Graphics.VerticalAlignment.Center);
+
+            graphics.DrawText(
+                x: graphics.Width / 2,
+                y: graphics.Height * 3 / 4 - 10,
+                text: $"Times!",
+                scaleFactor: ScaleFactor.X2,
+                alignmentH: Meadow.Foundation.Graphics.HorizontalAlignment.Center,
+                alignmentV: Meadow.Foundation.Graphics.VerticalAlignment.Center);
 
             graphics.Show();
         }
