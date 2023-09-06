@@ -11,10 +11,5 @@ namespace MauiMeadow
             InitializeComponent();
             BindingContext = new BaseViewModel();
         }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            (BindingContext as BaseViewModel).UpdateCounter();
-        }
     }
 }

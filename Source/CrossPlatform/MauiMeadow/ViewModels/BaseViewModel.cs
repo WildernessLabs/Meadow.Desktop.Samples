@@ -3,6 +3,7 @@ using Meadow.Foundation.Graphics;
 using Meadow.Foundation.ICs.IOExpanders;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace MauiMeadow.ViewModels
 {
@@ -10,10 +11,14 @@ namespace MauiMeadow.ViewModels
     {
         private MicroGraphics graphics;
 
+        public ICommand CountCommand { get; set; }
+
         public int Counter { get; set; } = -1;
 
         public BaseViewModel()
         {
+            CountCommand = new Command(UpdateCounter);
+
             var expander = new Ft232h();
 
             var display = new Gc9a01

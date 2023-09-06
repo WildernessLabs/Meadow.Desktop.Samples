@@ -42,13 +42,12 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
                 Text="Click me"
                 FontSize="Large"
                 Background="#23ABE3"
                 TextColor="White"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                Command="{Binding CountCommand}"
                 HorizontalOptions="Center">
                 <Button.Shadow>
                     <Shadow Brush="Black"
