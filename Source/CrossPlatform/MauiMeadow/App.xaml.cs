@@ -1,4 +1,8 @@
-﻿using Meadow.UI;
+﻿using Meadow;
+using Meadow.Foundation.Displays;
+using Meadow.Foundation.Graphics;
+using Meadow.Foundation.ICs.IOExpanders;
+using Meadow.UI;
 
 namespace MauiMeadow
 {
@@ -9,7 +13,26 @@ namespace MauiMeadow
             InitializeComponent();
             LoadMeadowOS();
 
+            MeadowInitialize();
+
             MainPage = new AppShell();
+        }
+
+        protected Task MeadowInitialize() 
+        {
+            var expander = new Ft232h();
+
+            var display = new Gc9a01
+            (
+                spiBus: expander.CreateSpiBus(),
+                chipSelectPin: expander.Pins.C0,
+                dcPin: expander.Pins.C1,
+                resetPin: expander.Pins.C2
+            );
+
+            Resolver.Services.Add<IGraphicsDisplay>(display);
+
+            return Task.CompletedTask;
         }
     }
 }
