@@ -1,35 +1,37 @@
-﻿using Meadow.Foundation.Displays;
+﻿using Meadow;
 using Meadow.Foundation.Graphics;
-using Meadow.Foundation.ICs.IOExpanders;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace MauiMeadow.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class MainPageViewModel : INotifyPropertyChanged
     {
         private MicroGraphics graphics;
+
+        private IGraphicsDisplay _display;
 
         public ICommand CountCommand { get; set; }
 
         public int Counter { get; set; } = -1;
 
-        public BaseViewModel()
+        public MainPageViewModel()
         {
             CountCommand = new Command(UpdateCounter);
 
-            var expander = new Ft232h();
+            _ = Task.Run(WaitForDisplay);
+        }
 
-            var display = new Gc9a01
-            (
-                spiBus: expander.CreateSpiBus(),
-                chipSelectPin: expander.Pins.C0,
-                dcPin: expander.Pins.C1,
-                resetPin: expander.Pins.C2
-            );
+        private async Task WaitForDisplay()
+        {
+            while (_display == null)
+            {
+                _display = Resolver.Services.Get<IGraphicsDisplay>();
+                await Task.Delay(100);
+            }
 
-            graphics = new MicroGraphics(display)
+            graphics = new MicroGraphics(_display)
             {
                 CurrentFont = new Font12x16(),
                 Stroke = 2,

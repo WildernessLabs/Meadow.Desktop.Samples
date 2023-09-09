@@ -3,8 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Shell.NavBarIsVisible="false"
-    x:Class="MauiMeadow.MainPage"
-    >
+    x:Class="MauiMeadow.MainPage">
 
     <Border
         BackgroundColor="#1A80AA"
@@ -56,7 +55,6 @@
                         Opacity="0.25" />
                 </Button.Shadow>
             </Button>
-
         </VerticalStackLayout>
     </Border>
 </ContentPage>
