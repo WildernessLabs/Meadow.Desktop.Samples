@@ -3,10 +3,11 @@ using Avalonia.Markup.Xaml;
 using AvaloniaMeadow.ViewModels;
 using AvaloniaMeadow.Views;
 using Meadow;
-using Meadow.Foundation.Displays;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.ICs.IOExpanders;
-using Meadow.Peripherals.Displays;
+using Meadow.Foundation.Leds;
+using Meadow.Foundation.Sensors.Atmospheric;
+using Meadow.Peripherals.Leds;
+using Meadow.Peripherals.Sensors;
 using Meadow.UI;
 using System.Threading.Tasks;
 
@@ -36,17 +37,13 @@ namespace AvaloniaMeadow
 
         public override Task MeadowInitialize()
         {
-            var expander = new Ft232h();
-            
-            var display = new Gc9a01
-            (
-                spiBus: expander.CreateSpiBus(),
-                chipSelectPin: expander.Pins.C0,
-                dcPin: expander.Pins.C1,
-                resetPin: expander.Pins.C2
-            );
+            //var expander = new Ft232h();
 
-            Resolver.Services.Add<IGraphicsDisplay>(display);
+            //var bme680 = new Bme680(expander.CreateSpiBus(), expander.Pins.C7);
+            //Resolver.Services.Add(bme680);
+
+            //var led = new Led(expander.Pins.C0);
+            //Resolver.Services.Add<ILed>(led);
 
             return Task.CompletedTask;
         }

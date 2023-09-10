@@ -1,100 +1,97 @@
 ﻿using Meadow;
-using Meadow.Foundation.Displays;
 using Meadow.Foundation.Graphics;
-using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
+using Meadow.Foundation.Sensors.Atmospheric;
+using Meadow.Peripherals.Leds;
+using Meadow.Peripherals.Sensors;
+using Meadow.Units;
 using ReactiveUI;
-using System.Drawing;
+using System;
 using System.Reactive;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AvaloniaMeadow.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private MicroGraphics graphics;
+        private ILed _led;
+        private Bme680 _bme680;
 
-        private IGraphicsDisplay _display;
-
-        private string _buttonText;
-
-        public int Counter { get; set; } = -1;
-
-        public ReactiveCommand<Unit, Unit> LedCommand { get; }
-
-        public string ButtonText
+        private string _temperatureValue;
+        public string TemperatureValue
         {
-            get => _buttonText;
-            set => this.RaiseAndSetIfChanged(ref _buttonText, value);
+            get => _temperatureValue;
+            set => this.RaiseAndSetIfChanged(ref _temperatureValue, value);
+        }
+
+        private string _humidityValue;
+        public string HumidityValue
+        {
+            get => _humidityValue;
+            set => this.RaiseAndSetIfChanged(ref _humidityValue, value);
+        }
+
+        private string _pressureValue;
+        public string PressureValue
+        {
+            get => _pressureValue;
+            set => this.RaiseAndSetIfChanged(ref _pressureValue, value);
         }
 
         public MainWindowViewModel()
         {
-            ButtonText = "Initializing...";
-            LedCommand = ReactiveCommand.Create(UpdateCounter);
+            TemperatureValue = "0°C";
+            HumidityValue = "0%";
+            PressureValue = "0atm";
 
             // since Avalonia and Meadow are both starting at the same time, we must wait
             // for MeadowInitialize to complete before the output port is ready
-            _ = Task.Run(WaitForDisplay);
+            //_ = Task.Run(WaitForHardware);
+
+            Simulate();
         }
 
-        private async Task WaitForDisplay()
+        private async Task WaitForHardware()
         {
-            while (_display == null)
+            while (_led == null || _bme680 == null)
             {
-                _display = Resolver.Services.Get<IGraphicsDisplay>();
+                _bme680 = Resolver.Services.Get<Bme680>();
+                _led = Resolver.Services.Get<ILed>();
                 await Task.Delay(100);
             }
 
-            graphics = new MicroGraphics(_display)
-            {
-                CurrentFont = new Font12x16(),
-                Stroke = 2,
-                Rotation = RotationType._180Degrees
-            };
-
-            UpdateCounter();
-
-            ButtonText = "Turn LED On";
+            _bme680.Updated += Bme680Updated;
+            _bme680.StartUpdating();
         }
 
-        public void UpdateCounter()
+        void Simulate() 
         {
-            Counter++;
+            Task.Run(() =>
+            {
+                var random = new Random();
 
-            graphics.DrawRectangle(
-                x: 0,
-                y: 0,
-                width: graphics.Width,
-                height: graphics.Height,
-                color: Meadow.Foundation.Color.FromHex("10485E"),
-                filled: true);
+                while (true)
+                {
+                    //_led.IsOn = true;
 
-            graphics.DrawText(
-                x: graphics.Width / 2,
-                y: graphics.Height / 4 + 10,
-                text: $"Clicked",
-                scaleFactor: ScaleFactor.X2,
-                alignmentH: HorizontalAlignment.Center,
-                alignmentV: VerticalAlignment.Center);
+                    Thread.Sleep(1000);
 
-            graphics.DrawText(
-                x: graphics.Width / 2,
-                y: graphics.Height / 2,
-                text: $"{Counter}",
-                scaleFactor: ScaleFactor.X3,
-                alignmentH: HorizontalAlignment.Center,
-                alignmentV: VerticalAlignment.Center);
+                    TemperatureValue = $"{random.Next(25, 27)}°C";
+                    HumidityValue = $"{random.Next(92, 95)}%";
+                    PressureValue = $"1.{random.Next(10, 14)}atm";
 
-            graphics.DrawText(
-                x: graphics.Width / 2,
-                y: graphics.Height * 3 / 4 - 10,
-                text: $"Times!",
-                scaleFactor: ScaleFactor.X2,
-                alignmentH: HorizontalAlignment.Center,
-                alignmentV: VerticalAlignment.Center);
+                    //_led.IsOn = false;
+                }
+            });
+        }
 
-            graphics.Show();
+        private void Bme680Updated(object? sender, IChangeResult<(Temperature? Temperature, RelativeHumidity? Humidity, Pressure? Pressure, Resistance? GasResistance)> e)
+        {
+            _led.IsOn = true;
+
+            Console.WriteLine($"Temperature: {e.New.Temperature.Value.Celsius}, Humidity: {e.New.Humidity.Value.Percent}");
+
+            _led.IsOn = false;
         }
     }
 }

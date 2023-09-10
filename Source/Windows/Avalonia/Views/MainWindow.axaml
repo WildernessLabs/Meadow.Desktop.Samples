@@ -22,9 +22,15 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
 
-            <Image 
-                Source="/Assets/meadow.png"
-                Height="200" />
+            <Border 
+                BorderThickness="0" 
+                HorizontalAlignment="Center"
+                BoxShadow="-5 5 20 0 #40000000">
+                <Image
+                    Source="/Assets/meadow.png"
+                    Height="200" />
+            </Border>
+            
 
             <TextBlock 
                 Text="Meadow on Avalonia" 
@@ -79,26 +85,27 @@
                         Margin="5" />
 
                     <TextBlock
-                        Text="25°C"
+                        Text="{Binding TemperatureValue}"
                         Foreground="White"
                         FontSize="18"
                         Grid.Row="0"
                         Grid.Column="1"
                         Margin="20,5,5,5" />
                     <TextBlock
-                        Text="1.15atm"
-                        Foreground="White"
-                        FontSize="18"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="20,5,5,5" />
-                    <TextBlock
-                        Text="95%"
+                        Text="{Binding HumidityValue}"
                         Foreground="White"
                         FontSize="18"
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="20,5,5,5" />
+                    <TextBlock
+                        Text="{Binding PressureValue}"
+                        Foreground="White"
+                        FontSize="18"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="20,5,5,5" />
+
                 </Grid>
             </Border>
         </StackPanel>
