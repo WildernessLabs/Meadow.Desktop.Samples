@@ -1,12 +1,8 @@
 ﻿using Meadow;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Sensors.Atmospheric;
 using Meadow.Peripherals.Leds;
-using Meadow.Peripherals.Sensors;
 using Meadow.Units;
 using ReactiveUI;
-using System;
-using System.Reactive;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -46,9 +42,7 @@ namespace AvaloniaMeadow.ViewModels
 
             // since Avalonia and Meadow are both starting at the same time, we must wait
             // for MeadowInitialize to complete before the output port is ready
-            //_ = Task.Run(WaitForHardware);
-
-            Simulate();
+            _ = Task.Run(WaitForHardware);
         }
 
         private async Task WaitForHardware()
@@ -64,32 +58,14 @@ namespace AvaloniaMeadow.ViewModels
             _bme680.StartUpdating();
         }
 
-        void Simulate() 
-        {
-            Task.Run(() =>
-            {
-                var random = new Random();
-
-                while (true)
-                {
-                    //_led.IsOn = true;
-
-                    Thread.Sleep(1000);
-
-                    TemperatureValue = $"{random.Next(25, 27)}°C";
-                    HumidityValue = $"{random.Next(92, 95)}%";
-                    PressureValue = $"1.{random.Next(10, 14)}atm";
-
-                    //_led.IsOn = false;
-                }
-            });
-        }
-
         private void Bme680Updated(object? sender, IChangeResult<(Temperature? Temperature, RelativeHumidity? Humidity, Pressure? Pressure, Resistance? GasResistance)> e)
         {
             _led.IsOn = true;
+            Thread.Sleep(1000);
 
-            Console.WriteLine($"Temperature: {e.New.Temperature.Value.Celsius}, Humidity: {e.New.Humidity.Value.Percent}");
+            TemperatureValue = $"{e.New.Temperature.Value.Celsius:n0}°C";
+            HumidityValue = $"{e.New.Humidity.Value.Percent:n0}%";
+            PressureValue = $"{e.New.Pressure.Value.StandardAtmosphere:n2}atm";
 
             _led.IsOn = false;
         }

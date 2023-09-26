@@ -7,7 +7,6 @@ using Meadow.Foundation.ICs.IOExpanders;
 using Meadow.Foundation.Leds;
 using Meadow.Foundation.Sensors.Atmospheric;
 using Meadow.Peripherals.Leds;
-using Meadow.Peripherals.Sensors;
 using Meadow.UI;
 using System.Threading.Tasks;
 
@@ -37,13 +36,13 @@ namespace AvaloniaMeadow
 
         public override Task MeadowInitialize()
         {
-            //var expander = new Ft232h();
+            var expander = new Ft232h();
 
-            //var bme680 = new Bme680(expander.CreateSpiBus(), expander.Pins.C7);
-            //Resolver.Services.Add(bme680);
+            var bme680 = new Bme680(expander.CreateSpiBus(), expander.Pins.C7);
+            Resolver.Services.Add(bme680);
 
-            //var led = new Led(expander.Pins.C0);
-            //Resolver.Services.Add<ILed>(led);
+            var led = new Led(expander.Pins.C0);
+            Resolver.Services.Add<ILed>(led);
 
             return Task.CompletedTask;
         }
