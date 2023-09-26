@@ -64,11 +64,13 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
         </td>
         <td>
             <img src="Design/wildernesslabs-meadow-windows-maui.png"/><br/>
-            Build hardware apps using Meadow within a MAUI app</br>
+            Build hardware apps using Meadow in a MAUI app</br>
             <a href="https://www.hackster.io/wilderness-labs/run-meadow-within-a-maui-windows-application-196d8d">Hackster</a> | <a href="Source/Windows/MauiMeadow/">Source Code</a>
         </td>
         <td>
-            <img src="Design/template-orange.png"/><br/>
+            <img src="Design/wildernesslabs-meadow-windows-avalonia.png"/><br/>
+            Build hardware apps using Meadow in an Avalonia app</br>
+            <a href="https://www.hackster.io/wilderness-labs/run-meadow-within-a-maui-windows-application-196d8d">Hackster</a> | <a href="Source/Windows/AvaloniaMeadow/">Source Code</a>
         </td>
     </tr>
     <tr>
