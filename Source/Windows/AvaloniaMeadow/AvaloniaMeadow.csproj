@@ -14,6 +14,7 @@
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Models\**" />
     <None Remove=".gitignore" />
+    <None Remove="Assets\meadow.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,17 +22,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.21" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.21" />
+    <PackageReference Include="Avalonia" Version="0.10.18" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.21" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.21" />
-    <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.18" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Meadow.Linux" Version="*" />
+    <PackageReference Include="Meadow.Windows" Version="*" />
     <PackageReference Include="Meadow.Avalonia" Version="*" />
+    <PackageReference Include="Meadow.Foundation.ICs.IOExpanders.Ft232h" Version="*" />
+    <PackageReference Include="Meadow.Foundation.Sensors.Atmospheric.Bme68x" Version="*" />
   </ItemGroup>
 
   <ItemGroup>

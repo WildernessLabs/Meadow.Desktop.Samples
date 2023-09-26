@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkBasics", "NetworkBas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsMeadow", "WinForms\WinFormsMeadow.csproj", "{D6DBF6C2-2EBE-4C85-8B9B-BAEB1ED20E68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaMeadow", "Avalonia\AvaloniaMeadow.csproj", "{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaMeadow", "AvaloniaMeadow\AvaloniaMeadow.csproj", "{61E745AB-452C-433E-AAAC-C06DA6A9CA0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
