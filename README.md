@@ -41,23 +41,6 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
 <table>
     <tr>
         <td>
-            <img src="Design/wildernesslabs-meadow-windows-blinky.png"/><br/>
-            Running Blinky app with an FT232H IO Expander</br>
-            <a href="https://www.hackster.io/wilderness-labs/run-meadow-apps-directly-from-your-pc-using-meadow-windows-dab4bf">Hackster</a> | <a href="Source/Windows/Blinky/">Source Code</a>
-        </td>
-        <td>
-            <img src="Design/wildernesslabs-meadow-windows-characterdisplay.png"/><br/>
-            Using a Character Display with an FT232H IO Expander</br>
-            <a href="https://www.hackster.io/wilderness-labs/control-an-lcd-display-with-your-pc-using-meadow-windows-186c6d">Hackster</a> | <a href="Source/Windows/CharacterDisplaySample/">Source Code</a>
-        </td>
-        <td>
-            <img src="Design/wildernesslabs-meadow-windows-graphics.png"/><br/>
-            Show weather data on a display with an FT232H IO Expander</br>
-            <a href="https://www.hackster.io/wilderness-labs/build-this-weather-widget-running-directly-from-your-pc-57c69f">Hackster</a> | <a href="Source/Windows/WifiWeather/">Source Code</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
             <img src="Design/wildernesslabs-meadow-windows-winforms.jpg"/><br/>
             Build HMI Screens using Meadow.WinForms</br>
             <a href="https://www.hackster.io/wilderness-labs/run-meadow-micrographics-on-winforms-directly-from-your-pc-db875b">Hackster</a> | <a href="Source/Windows/WinForms/">Source Code</a>
@@ -71,6 +54,23 @@ Also check the pinout to make sure to connect the peripheral or sensor on the ri
             <img src="Design/wildernesslabs-meadow-windows-avalonia.png"/><br/>
             Build hardware apps using Meadow in an Avalonia app</br>
             <a href="https://www.hackster.io/wilderness-labs/run-meadow-within-a-maui-windows-application-196d8d">Hackster</a> | <a href="Source/Windows/AvaloniaMeadow/">Source Code</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="Design/wildernesslabs-meadow-windows-blinky.png"/><br/>
+            Running Blinky app with an FT232H IO Expander</br>
+            <a href="https://www.hackster.io/wilderness-labs/run-meadow-apps-directly-from-your-pc-using-meadow-windows-dab4bf">Hackster</a> | <a href="Source/Windows/Blinky/">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/wildernesslabs-meadow-windows-characterdisplay.png"/><br/>
+            Using a Character Display with an FT232H IO Expander</br>
+            <a href="https://www.hackster.io/wilderness-labs/control-an-lcd-display-with-your-pc-using-meadow-windows-186c6d">Hackster</a> | <a href="Source/Windows/CharacterDisplaySample/">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/wildernesslabs-meadow-windows-graphics.png"/><br/>
+            Show weather data on a display with an FT232H IO Expander</br>
+            <a href="https://www.hackster.io/wilderness-labs/build-this-weather-widget-running-directly-from-your-pc-57c69f">Hackster</a> | <a href="Source/Windows/WifiWeather/">Source Code</a>
         </td>
     </tr>
     <tr>
