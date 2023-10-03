@@ -6,6 +6,8 @@ namespace WifiWeather.ViewModels
     {
         public int WeatherCode { get; set; }
 
+        public string WeatherIcon { get; set; }
+
         public int OutdoorTemperature { get; set; }
 
         public int FeelsLikeTemperature { get; set; }
@@ -22,6 +24,8 @@ namespace WifiWeather.ViewModels
         {
             WeatherCode = outdoorConditions.weather[0].id;
 
+            WeatherIcon = LoadResource(WeatherCode);
+
             OutdoorTemperature = (int)(outdoorConditions.main.temp - 273);
 
             FeelsLikeTemperature = (int)(outdoorConditions.main.feels_like - 273);
@@ -33,6 +37,38 @@ namespace WifiWeather.ViewModels
             WindSpeed = outdoorConditions.wind.speed;
 
             WindDirection = outdoorConditions.wind.deg;
+        }
+
+        string LoadResource(int weatherCode)
+        {
+            string resourceName;
+
+            switch (weatherCode)
+            {
+                case int n when (n >= WeatherConstants.THUNDERSTORM_LIGHT_RAIN && n <= WeatherConstants.THUNDERSTORM_HEAVY_DRIZZLE):
+                    resourceName = $"WifiWeather.w_storm.jpg";
+                    break;
+                case int n when (n >= WeatherConstants.DRIZZLE_LIGHT && n <= WeatherConstants.DRIZZLE_SHOWER):
+                    resourceName = $"WifiWeather.w_drizzle.jpg";
+                    break;
+                case int n when (n >= WeatherConstants.RAIN_LIGHT && n <= WeatherConstants.RAIN_SHOWER_RAGGED):
+                    resourceName = $"WifiWeather.w_rain.jpg";
+                    break;
+                case int n when (n >= WeatherConstants.SNOW_LIGHT && n <= WeatherConstants.SNOW_SHOWER_HEAVY):
+                    resourceName = $"WifiWeather.w_snow.jpg";
+                    break;
+                case WeatherConstants.CLOUDS_CLEAR:
+                    resourceName = $"WifiWeather.w_clear.jpg";
+                    break;
+                case int n when (n >= WeatherConstants.CLOUDS_FEW && n <= WeatherConstants.CLOUDS_OVERCAST):
+                    resourceName = $"WifiWeather.w_cloudy.jpg";
+                    break;
+                default:
+                    resourceName = $"WifiWeather.w_misc.jpg";
+                    break;
+            }
+
+            return resourceName;
         }
     }
 }
