@@ -23,8 +23,7 @@ public class MeadowApp : App<Windows>
             resetPin: expander.Pins.C1
         );
 
-        _displayController = new DisplayView();
-        _displayController.Initialize(display);
+        _displayController = new DisplayView(display);
 
         return Task.CompletedTask;
     }
