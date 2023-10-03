@@ -2,8 +2,6 @@
 using Meadow.Foundation.Graphics;
 using SimpleJpegDecoder;
 using System.Reflection;
-using WifiWeather.Models;
-using WifiWeather.ViewModels;
 
 namespace WifiWeather.Views
 {
@@ -62,7 +60,7 @@ namespace WifiWeather.Views
             return "th";
         }
 
-        public void UpdateDisplay(WeatherViewModel model)
+        public void UpdateDisplay(string weatherIcon, string temperature, string humidity, string pressure, string feelsLike, string windDirection, string windSpeed)
         {
             int spacing = 95;
             int valueSpacing = 30;
@@ -70,7 +68,7 @@ namespace WifiWeather.Views
 
             graphics.Clear(backgroundColor);
 
-            DisplayJPG(model.WeatherCode, x_padding, 15);
+            DisplayJPG(weatherIcon, x_padding, 15);
 
             graphics.CurrentFont = font12X20;
             graphics.DrawText(x_padding, y, "Temperature", foregroundColor);
@@ -80,22 +78,21 @@ namespace WifiWeather.Views
             graphics.DrawText(graphics.Width - x_padding, y + spacing, "Wind Dir", foregroundColor, alignmentH: HorizontalAlignment.Right);
             graphics.DrawText(graphics.Width - x_padding, y + spacing * 2, "Wind Spd", foregroundColor, alignmentH: HorizontalAlignment.Right);
 
-            graphics.DrawText(x_padding, y + valueSpacing, $"{model.OutdoorTemperature}°C", foregroundColor, ScaleFactor.X2);
-            graphics.DrawText(graphics.Width - x_padding, y + valueSpacing, $"{model.FeelsLikeTemperature + 2}°C", foregroundColor, ScaleFactor.X2, alignmentH: HorizontalAlignment.Right);
-            graphics.DrawText(x_padding, y + valueSpacing + spacing, $"{model.Humidity}%", foregroundColor, ScaleFactor.X2);
-            graphics.DrawText(graphics.Width - x_padding, y + valueSpacing + spacing, $"{model.WindDirection}°", foregroundColor, ScaleFactor.X2, alignmentH: HorizontalAlignment.Right);
+            graphics.DrawText(x_padding, y + valueSpacing, $"{temperature}°C", foregroundColor, ScaleFactor.X2);
+            graphics.DrawText(graphics.Width - x_padding, y + valueSpacing, $"{feelsLike + 2}°C", foregroundColor, ScaleFactor.X2, alignmentH: HorizontalAlignment.Right);
+            graphics.DrawText(x_padding, y + valueSpacing + spacing, $"{humidity}%", foregroundColor, ScaleFactor.X2);
+            graphics.DrawText(graphics.Width - x_padding, y + valueSpacing + spacing, $"{windDirection}°", foregroundColor, ScaleFactor.X2, alignmentH: HorizontalAlignment.Right);
 
             graphics.CurrentFont = font8X16;
-            graphics.DrawText(graphics.Width - x_padding, y + valueSpacing + spacing * 2, $"{model.WindSpeed}m/s", foregroundColor, ScaleFactor.X2, alignmentH: HorizontalAlignment.Right);
-            graphics.DrawText(x_padding, y + valueSpacing + spacing * 2, $"{model.Pressure}hPa", foregroundColor, ScaleFactor.X2);
-
+            graphics.DrawText(graphics.Width - x_padding, y + valueSpacing + spacing * 2, $"{windSpeed}m/s", foregroundColor, ScaleFactor.X2, alignmentH: HorizontalAlignment.Right);
+            graphics.DrawText(x_padding, y + valueSpacing + spacing * 2, $"{pressure}hPa", foregroundColor, ScaleFactor.X2);
 
             graphics.Show();
         }
 
-        void DisplayJPG(int weatherCode, int xOffset, int yOffset)
+        void DisplayJPG(string weatherIcon, int xOffset, int yOffset)
         {
-            var jpgData = LoadResource(weatherCode);
+            var jpgData = LoadResource(weatherIcon);
             var decoder = new JpegDecoder();
             var jpg = decoder.DecodeJpeg(jpgData);
 
@@ -120,37 +117,11 @@ namespace WifiWeather.Views
             }
         }
 
-        byte[] LoadResource(int weatherCode)
+        byte[] LoadResource(string weatherIcon)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            string resourceName;
 
-            switch (weatherCode)
-            {
-                case int n when (n >= WeatherConstants.THUNDERSTORM_LIGHT_RAIN && n <= WeatherConstants.THUNDERSTORM_HEAVY_DRIZZLE):
-                    resourceName = $"WifiWeather.w_storm.jpg";
-                    break;
-                case int n when (n >= WeatherConstants.DRIZZLE_LIGHT && n <= WeatherConstants.DRIZZLE_SHOWER):
-                    resourceName = $"WifiWeather.w_drizzle.jpg";
-                    break;
-                case int n when (n >= WeatherConstants.RAIN_LIGHT && n <= WeatherConstants.RAIN_SHOWER_RAGGED):
-                    resourceName = $"WifiWeather.w_rain.jpg";
-                    break;
-                case int n when (n >= WeatherConstants.SNOW_LIGHT && n <= WeatherConstants.SNOW_SHOWER_HEAVY):
-                    resourceName = $"WifiWeather.w_snow.jpg";
-                    break;
-                case WeatherConstants.CLOUDS_CLEAR:
-                    resourceName = $"WifiWeather.w_clear.jpg";
-                    break;
-                case int n when (n >= WeatherConstants.CLOUDS_FEW && n <= WeatherConstants.CLOUDS_OVERCAST):
-                    resourceName = $"WifiWeather.w_cloudy.jpg";
-                    break;
-                default:
-                    resourceName = $"WifiWeather.w_misc.jpg";
-                    break;
-            }
-
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (Stream stream = assembly.GetManifestResourceStream(weatherIcon))
             {
                 using (var ms = new MemoryStream())
                 {

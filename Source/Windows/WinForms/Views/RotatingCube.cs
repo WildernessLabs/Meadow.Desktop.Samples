@@ -5,7 +5,7 @@ using System;
 
 namespace WinFormsMeadow.Views
 {
-    internal class RotatingCube
+    public class RotatingCube
     {
         Color backgroundColor = Color.FromHex("91E46C");
         Color foregroundColor = Color.FromHex("000000");

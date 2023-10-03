@@ -38,7 +38,14 @@ public class MeadowApp : App<Windows>
         var model = new WeatherViewModel(outdoorConditions);
 
         // Send formatted data to display to render
-        _displayController.UpdateDisplay(model);
+        _displayController.UpdateDisplay(
+            weatherIcon: model.WeatherIcon,
+            temperature: $"{model.OutdoorTemperature:n0}°C",
+            humidity: $"{model.Humidity:n0}%",
+            pressure: $"{model.Pressure:n0}hPa",
+            feelsLike: $"{model.FeelsLikeTemperature:n0}hPa",
+            windDirection: $"{model.WindDirection:n0}°",
+            windSpeed: $"{model.WindSpeed:n0}m/s");
     }
 
     public override async Task Run()
