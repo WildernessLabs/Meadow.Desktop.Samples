@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Meadow.Linux" Version="*" />
-    <PackageReference Include="Meadow.Avalonia" Version="*" />
+    <ProjectReference Include="..\..\..\..\Meadow.Core\source\implementations\linux\Meadow.Linux\Meadow.Linux.csproj" />
+    <ProjectReference Include="..\..\..\..\Meadow.Core\source\ui\Meadow.Avalonia\Meadow.Avalonia.csproj" />
   </ItemGroup>
 
   <ItemGroup>
