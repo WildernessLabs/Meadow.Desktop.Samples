@@ -23,6 +23,8 @@
       <None Remove="w_rain.bmp" />
       <None Remove="w_snow.bmp" />
       <None Remove="w_storm.bmp" />
+      <None Remove="img-green.bmp" />
+      <None Remove="img-red.bmp" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="Resources\img_meadow.bmp" />
@@ -37,6 +39,8 @@
       <EmbeddedResource Include="Resources\w_rain.bmp" />
       <EmbeddedResource Include="Resources\w_snow.bmp" />
       <EmbeddedResource Include="Resources\w_storm.bmp" />
+      <EmbeddedResource Include="img-green.bmp" />
+      <EmbeddedResource Include="img-red.bmp" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="SimpleJpegDecoder" Version="*" />
