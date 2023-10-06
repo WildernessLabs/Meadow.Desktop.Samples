@@ -9,8 +9,14 @@ namespace WinFormsMeadow.Views
     {
         DisplayScreen screen;
 
+        Image imgWifi = Image.LoadFromResource("WinFormsMeadow.img-wifi.bmp");
+        Image imgSync = Image.LoadFromResource("WinFormsMeadow.img-sync.bmp");
+        Image imgWifiFade = Image.LoadFromResource("WinFormsMeadow.img-wifi-fade.bmp");
+        Image imgSyncFade = Image.LoadFromResource("WinFormsMeadow.img-sync-fade.bmp");
         Image imgRed = Image.LoadFromResource("WinFormsMeadow.img-red.bmp");
         Image imgGreen = Image.LoadFromResource("WinFormsMeadow.img-green.bmp");
+
+        protected Label StatusLabel { get; set; }
 
         protected Label TemperatureLabel { get; set; }
 
@@ -19,6 +25,10 @@ namespace WinFormsMeadow.Views
         protected Label SoilMoistureLabel { get; set; }
 
         protected Picture ledLights { get; set; }
+
+        protected Picture wifi { get; set; }
+
+        protected Picture sync { get; set; }
 
         protected Picture ledWater { get; set; }
 
@@ -37,6 +47,20 @@ namespace WinFormsMeadow.Views
 
             screen.Controls.Add(new Box(160, 120, 1, screen.Height) { ForeColor = Meadow.Foundation.Color.Black, Filled = false });
             screen.Controls.Add(new Box(0, 180, screen.Width, 1) { ForeColor = Meadow.Foundation.Color.Black, Filled = false });
+
+            StatusLabel = new Label(2, 6, 12, 16)
+            {
+                Text = "Hello Meadow",
+                Font = new Font12x20(),
+                TextColor = Meadow.Foundation.Color.Black
+            };
+            screen.Controls.Add(StatusLabel);
+
+            wifi = new Picture(286, 3, 30, 21, imgWifi);
+            screen.Controls.Add(wifi);
+
+            sync = new Picture(260, 3, 21, 21, imgSync);
+            screen.Controls.Add(sync);
 
             screen.Controls.Add(new Label(5, 32, 12, 16)
             {
@@ -156,50 +180,76 @@ namespace WinFormsMeadow.Views
             });
         }
 
-        protected void UpdateTemperature(double temp)
+        public void UpdateWifi(bool on)
+        {
+            wifi.Image = on ? imgWifi : imgWifiFade;
+        }
+
+        public void UpdateSync(bool on)
+        {
+            sync.Image = on ? imgSync : imgSyncFade;
+        }
+
+        public void UpdateStatus(string status)
+        {
+            StatusLabel.Text = status;
+        }
+
+        public void UpdateTemperature(double temp)
         {
             TemperatureLabel.Text = temp.ToString("N0");
         }
 
-        protected void UpdateHumidity(double humidity)
+        public void UpdateHumidity(double humidity)
         {
             HumidityLabel.Text = humidity.ToString("N0");
         }
 
-        protected void UpdateSoilMoisture(double moisture)
+        public void UpdateSoilMoisture(double moisture)
         {
             SoilMoistureLabel.Text = moisture.ToString("N0");
         }
 
-        protected void UpdateLights(bool on)
+        public void UpdateLights(bool on)
         {
             ledLights.Image = on ? imgGreen : imgRed;
         }
 
-        protected void UpdateHeater(bool on)
+        public void UpdateHeater(bool on)
         {
             ledHeater.Image = on ? imgGreen : imgRed;
         }
 
-        protected void UpdateWater(bool on)
+        public void UpdateWater(bool on)
         {
             ledWater.Image = on ? imgGreen : imgRed;
         }
 
-        protected void UpdateVents(bool on)
+        public void UpdateVents(bool on)
         {
             ledVents.Image = on ? imgGreen : imgRed;
         }
 
         public async Task Run()
         {
+            bool status = false;
+
             while (true)
             {
                 var random = new Random();
 
+                UpdateWifi(status);
+                UpdateSync(status);
+
                 UpdateTemperature(random.Next(20, 25));
-                //UpdateHumidity(random.Next(30, 35));
-                //UpdateSoilMoisture(random.Next(40, 45));
+                UpdateHumidity(random.Next(30, 35));
+                UpdateSoilMoisture(random.Next(40, 45));
+
+                UpdateLights(status);
+                UpdateHeater(status);
+                UpdateWater(status);
+                UpdateVents(status);
+                status = !status;
 
                 await Task.Delay(1000);
             }
