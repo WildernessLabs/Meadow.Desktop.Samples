@@ -1,5 +1,5 @@
 ﻿using Meadow;
-using Meadow.Peripherals.Sensors;
+using Meadow.Peripherals.Sensors.Distance;
 using Meadow.Units;
 using System;
 using System.Threading.Tasks;
