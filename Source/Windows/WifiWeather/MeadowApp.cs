@@ -42,7 +42,7 @@ public class MeadowApp : App<Windows>
             temperature: $"{model.OutdoorTemperature:n0}°C",
             humidity: $"{model.Humidity:n0}%",
             pressure: $"{model.Pressure:n0}hPa",
-            feelsLike: $"{model.FeelsLikeTemperature:n0}hPa",
+            feelsLike: $"{model.FeelsLikeTemperature:n0}°C",
             windDirection: $"{model.WindDirection:n0}°",
             windSpeed: $"{model.WindSpeed:n0}m/s");
     }
