@@ -12,7 +12,8 @@ namespace WinFormsMeadow
         WinFormsDisplay _display;
 
         //RotatingCube views;
-        WiFiWeather views;
+        //WiFiWeather views;
+        AtmosphericHMI views;
 
         public override Task Initialize()
         {
@@ -20,8 +21,12 @@ namespace WinFormsMeadow
             //views = new RotatingCube(_display);
 
             // Screen size of a ILI9488 display
-            _display = new WinFormsDisplay(320, 480);
-            views = new WiFiWeather(_display);
+            //_display = new WinFormsDisplay(320, 480);
+            //views = new WiFiWeather(_display);
+
+            // Screen size of a ILI9488 display
+            _display = new WinFormsDisplay(320, 240);
+            views = new AtmosphericHMI(_display);
 
             return Task.CompletedTask;
         }
