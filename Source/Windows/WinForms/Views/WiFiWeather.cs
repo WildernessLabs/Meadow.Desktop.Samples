@@ -7,7 +7,7 @@ namespace WinFormsMeadow.Views
 {
     public class WiFiWeather
     {
-        Image _weatherIcon = Image.LoadFromResource("WinFormsMeadow.w_clear.bmp");
+        Image _weatherIcon = Image.LoadFromResource("WinFormsMeadow.Resources.w_clear.bmp");
 
         int x_padding = 20;
 
@@ -44,7 +44,7 @@ namespace WinFormsMeadow.Views
 
         public WiFiWeather(IGraphicsDisplay display)
         {
-            DisplayScreen = new DisplayScreen(display) 
+            DisplayScreen = new DisplayScreen(display)
             {
                 BackgroundColor = backgroundColor
             };
@@ -242,7 +242,7 @@ namespace WinFormsMeadow.Views
         public async Task Run()
         {
             UpdateDisplay(
-                weatherIcon: $"WinFormsMeadow.w_drizzle.bmp",
+                weatherIcon: $"WinFormsMeadow.Resources.w_drizzle.bmp",
                 temperature: $"23°C",
                 humidity: $"93%",
                 pressure: $"1102hPa",
