@@ -618,21 +618,15 @@ namespace WinFormsMeadow.Views
             DisplayScreen.EndUpdate();
         }
 
-        protected void UpdateDirectionalPad(int direction)
+        public void UpdateDirectionalPad(int direction, bool pressed)
         {
-            DisplayScreen.BeginUpdate();
-
-            Up.ForeColor = Down.ForeColor = Left.ForeColor = Right.ForeColor = ForegroundColor;
-
             switch (direction)
             {
-                case 0: Up.ForeColor = accentColor; break;
-                case 1: Down.ForeColor = accentColor; break;
-                case 2: Left.ForeColor = accentColor; break;
-                case 3: Right.ForeColor = accentColor; break;
+                case 0: Up.ForeColor = pressed ? accentColor : ForegroundColor; break;
+                case 1: Down.ForeColor = pressed ? accentColor : ForegroundColor; break;
+                case 2: Left.ForeColor = pressed ? accentColor : ForegroundColor; break;
+                case 3: Right.ForeColor = pressed ? accentColor : ForegroundColor; break;
             }
-
-            DisplayScreen.EndUpdate();
         }
 
         protected void UpdateSelectReading(int reading)
@@ -705,7 +699,7 @@ namespace WinFormsMeadow.Views
                     random.Next(100, 4000)
                 );
 
-                UpdateDirectionalPad(random.Next(0, 5));
+                UpdateDirectionalPad(random.Next(0, 5), true);
 
                 UpdateSelectReading(random.Next(0, 4));
 
