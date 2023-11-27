@@ -7,9 +7,31 @@ namespace WinFormsMeadow.Views
 {
     internal class ProjectLabDemoView
     {
-        //private readonly int rowHeight = 40;
-        private readonly int graphHeight = 135;
-        //private readonly int margin = 15;
+        readonly int margin = 5;
+        readonly int smallMargin = 3;
+        readonly int graphHeight = 106;
+
+        readonly int measureBoxWidth = 82;
+
+        readonly int column1 = 96;
+        readonly int column2 = 206;
+        readonly int columnWidth = 109;
+
+        readonly int rowHeight = 30;
+        readonly int row1 = 135;
+        readonly int row2 = 170;
+        readonly int row3 = 205;
+
+        readonly int sensorBarHeight = 14;
+        readonly int sensorBarInitialWidth = 6;
+        readonly int sensorBarX = 184;
+        readonly int sensorBarY = 202;
+        readonly int sensorBarZ = 220;
+
+        readonly int clockX = 244;
+        readonly int clockWidth = 71;
+
+        readonly int dPadSize = 9;
 
         protected DisplayScreen DisplayScreen { get; set; }
 
@@ -51,6 +73,14 @@ namespace WinFormsMeadow.Views
         protected Box Left { get; set; }
         protected Box Right { get; set; }
 
+        protected Box AccelerometerX { get; set; }
+        protected Box AccelerometerY { get; set; }
+        protected Box AccelerometerZ { get; set; }
+
+        protected Box GyroscopeX { get; set; }
+        protected Box GyroscopeY { get; set; }
+        protected Box GyroscopeZ { get; set; }
+
         protected Label ConnectionErrorLabel { get; set; }
 
         private Meadow.Foundation.Color backgroundColor = Meadow.Foundation.Color.FromHex("10485E");
@@ -59,6 +89,7 @@ namespace WinFormsMeadow.Views
         private Meadow.Foundation.Color ForegroundColor = Meadow.Foundation.Color.FromHex("EEEEEE");
         private Font12x20 font12X20 = new Font12x20();
         private Font8x12 font8x12 = new Font8x12();
+        private Font8x16 font8x16 = new Font8x16();
         private Font6x8 font6x8 = new Font6x8();
 
         public ProjectLabDemoView(IGraphicsDisplay display)
@@ -95,20 +126,7 @@ namespace WinFormsMeadow.Views
             SplashLayout.Controls.Add(displayImage);
         }
 
-        int margin = 5;
-        int smallMargin = 3;
 
-
-        int measureBoxWidth = 82;
-
-        int column1x = 92;
-        int column2x = 206;
-        int columnWidth = 109;
-
-        int rowHeight = 30;
-        int row1x = 135;
-        int row2x = 170;
-        int row3x = 205;
 
         private void LoadDataLayout()
         {
@@ -120,17 +138,22 @@ namespace WinFormsMeadow.Views
 
             DataLayout.Controls.Add(new Label(
                 margin,
-                7,
-                166,
-                16)
+                margin,
+                DisplayScreen.Width / 2,
+                font8x16.Height)
             {
                 Text = $"Project Lab v3",
                 TextColor = Meadow.Foundation.Color.White,
-                Font = new Font8x16()
+                Font = font8x16
             });
 
             var wifiImage = Image.LoadFromResource("WinFormsMeadow.Resources.img_wifi_connecting.bmp");
-            WifiStatus = new Picture(DisplayScreen.Width - wifiImage.Width - margin, 5, wifiImage.Width, 16, wifiImage)
+            WifiStatus = new Picture(
+                DisplayScreen.Width - wifiImage.Width - margin,
+                margin,
+                wifiImage.Width,
+                font8x16.Height,
+                wifiImage)
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -138,7 +161,12 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(WifiStatus);
 
             var syncImage = Image.LoadFromResource("WinFormsMeadow.Resources.img_refreshed.bmp");
-            SyncStatus = new Picture(DisplayScreen.Width - syncImage.Width - wifiImage.Width - margin * 2, 5, syncImage.Width, 16, syncImage)
+            SyncStatus = new Picture(
+                DisplayScreen.Width - syncImage.Width - wifiImage.Width - margin * 2,
+                margin,
+                syncImage.Width,
+                font8x16.Height,
+                syncImage)
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -147,9 +175,9 @@ namespace WinFormsMeadow.Views
 
             LineChart = new LineChart(
                 margin,
-                24,
-                310,
-                106)
+                margin + font8x16.Height + smallMargin,
+                DisplayScreen.Width - margin * 2,
+                graphHeight)
             {
                 BackgroundColor = Meadow.Foundation.Color.FromHex("082936"),
                 AxisColor = ForegroundColor,
@@ -170,14 +198,14 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(LineChart);
 
             #region TEMPERATURE
-            TemperatureBox = new Box(margin, row1x, measureBoxWidth, rowHeight)
+            TemperatureBox = new Box(margin, row1, measureBoxWidth, rowHeight)
             {
                 ForeColor = selectedColor
             };
             DataLayout.Controls.Add(TemperatureBox);
             TemperatureLabel = new Label(
                 margin + smallMargin,
-                row1x + smallMargin,
+                row1 + smallMargin,
                 measureBoxWidth - smallMargin * 2,
                 font6x8.Height)
             {
@@ -188,7 +216,7 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(TemperatureLabel);
             TemperatureValue = new Label(
                 margin + smallMargin,
-                row1x + font6x8.Height + smallMargin * 2,
+                row1 + font6x8.Height + smallMargin * 2,
                 measureBoxWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
@@ -203,7 +231,7 @@ namespace WinFormsMeadow.Views
             #region PRESSURE
             PressureBox = new Box(
                 margin,
-                row2x,
+                row2,
                 measureBoxWidth,
                 rowHeight)
             {
@@ -212,7 +240,7 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(PressureBox);
             PressureLabel = new Label(
                 margin + smallMargin,
-                row2x + smallMargin,
+                row2 + smallMargin,
                 measureBoxWidth - smallMargin * 2,
                 font6x8.Height)
             {
@@ -223,7 +251,7 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(PressureLabel);
             PressureValue = new Label(
                 margin + smallMargin,
-                row2x + font6x8.Height + smallMargin * 2,
+                row2 + font6x8.Height + smallMargin * 2,
                 measureBoxWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
@@ -238,7 +266,7 @@ namespace WinFormsMeadow.Views
             #region HUMIDITY
             HumidityBox = new Box(
                 margin,
-                row3x,
+                row3,
                 measureBoxWidth,
                 rowHeight)
             {
@@ -247,7 +275,7 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(HumidityBox);
             HumidityLabel = new Label(
                 margin + smallMargin,
-                row3x + smallMargin,
+                row3 + smallMargin,
                 measureBoxWidth - smallMargin * 2,
                 font6x8.Height)
             {
@@ -258,7 +286,7 @@ namespace WinFormsMeadow.Views
             DataLayout.Controls.Add(HumidityLabel);
             HumidityValue = new Label(
                 margin + smallMargin,
-                row3x + font6x8.Height + smallMargin * 2,
+                row3 + font6x8.Height + smallMargin * 2,
                 columnWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
@@ -272,8 +300,8 @@ namespace WinFormsMeadow.Views
 
             #region LUMINANCE
             LuminanceBox = new Box(
-                column1x,
-                row1x,
+                column1,
+                row1,
                 columnWidth,
                 rowHeight)
             {
@@ -281,8 +309,8 @@ namespace WinFormsMeadow.Views
             };
             DataLayout.Controls.Add(LuminanceBox);
             LuminanceLabel = new Label(
-                column1x + smallMargin,
-                row1x + smallMargin,
+                column1 + smallMargin,
+                row1 + smallMargin,
                 columnWidth - smallMargin * 2,
                 font6x8.Height)
             {
@@ -292,8 +320,8 @@ namespace WinFormsMeadow.Views
             };
             DataLayout.Controls.Add(LuminanceLabel);
             LuminanceValue = new Label(
-                column1x + smallMargin,
-                row1x + font6x8.Height + smallMargin * 2,
+                column1 + smallMargin,
+                row1 + font6x8.Height + smallMargin * 2,
                 columnWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
@@ -307,8 +335,8 @@ namespace WinFormsMeadow.Views
 
             #region ACCELEROMETER
             DataLayout.Controls.Add(new Label(
-                column1x + smallMargin,
-                row2x + smallMargin,
+                column1 + smallMargin,
+                row2 + smallMargin,
                 columnWidth - smallMargin * 2,
                 font6x8.Height)
             {
@@ -316,9 +344,10 @@ namespace WinFormsMeadow.Views
                 TextColor = Meadow.Foundation.Color.White,
                 Font = font6x8
             });
+
             DataLayout.Controls.Add(new Label(
-                column1x + smallMargin,
-                184,
+                column1 + smallMargin,
+                sensorBarX,
                 font6x8.Width * 2,
                 font6x8.Height * 2)
             {
@@ -327,9 +356,19 @@ namespace WinFormsMeadow.Views
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
+            AccelerometerX = new Box(
+                column1 + font6x8.Width * 2 + margin,
+                sensorBarX,
+                sensorBarInitialWidth,
+                sensorBarHeight)
+            {
+                ForeColor = Meadow.Foundation.Color.FromHex("98A645")
+            };
+            DataLayout.Controls.Add(AccelerometerX);
+
             DataLayout.Controls.Add(new Label(
-                column1x + smallMargin,
-                202,
+                column1 + smallMargin,
+                sensorBarY,
                 font6x8.Width * 2,
                 font6x8.Height * 2)
             {
@@ -338,9 +377,19 @@ namespace WinFormsMeadow.Views
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
+            AccelerometerY = new Box(
+                column1 + font6x8.Width * 2 + margin,
+                sensorBarY,
+                sensorBarInitialWidth,
+                sensorBarHeight)
+            {
+                ForeColor = Meadow.Foundation.Color.FromHex("C9DB31")
+            };
+            DataLayout.Controls.Add(AccelerometerY);
+
             DataLayout.Controls.Add(new Label(
-                column1x + smallMargin,
-                220,
+                column1 + smallMargin,
+                sensorBarZ,
                 font6x8.Width * 2,
                 font6x8.Height * 2)
             {
@@ -349,36 +398,21 @@ namespace WinFormsMeadow.Views
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
-            DataLayout.Controls.Add(new Box(
-                108,
-                184,
-                92,
-                14)
-            {
-                ForeColor = Meadow.Foundation.Color.FromHex("98A645")
-            });
-            DataLayout.Controls.Add(new Box(
-                108,
-                202,
-                92,
-                14)
-            {
-                ForeColor = Meadow.Foundation.Color.FromHex("C9DB31")
-            });
-            DataLayout.Controls.Add(new Box(
-                108,
-                220,
-                92,
-                14)
+            AccelerometerZ = new Box(
+                column1 + font6x8.Width * 2 + margin,
+                sensorBarZ,
+                sensorBarInitialWidth,
+                sensorBarHeight)
             {
                 ForeColor = Meadow.Foundation.Color.FromHex("E1EB8B")
-            });
+            };
+            DataLayout.Controls.Add(AccelerometerZ);
             #endregion
 
             #region GYROSCOPE
             DataLayout.Controls.Add(new Label(
-                column2x + smallMargin,
-                row2x + smallMargin,
+                column2 + smallMargin,
+                row2 + smallMargin,
                 columnWidth - smallMargin * 2,
                 font6x8.Height)
             {
@@ -386,9 +420,10 @@ namespace WinFormsMeadow.Views
                 TextColor = Meadow.Foundation.Color.White,
                 Font = font6x8
             });
+
             DataLayout.Controls.Add(new Label(
-                column2x + smallMargin,
-                184,
+                column2 + smallMargin,
+                sensorBarX,
                 font6x8.Width * 2,
                 font6x8.Height * 2)
             {
@@ -397,9 +432,19 @@ namespace WinFormsMeadow.Views
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
+            GyroscopeX = new Box(
+                column2 + font6x8.Width * 2 + margin,
+                sensorBarX,
+                sensorBarInitialWidth,
+                sensorBarHeight)
+            {
+                ForeColor = Meadow.Foundation.Color.FromHex("98A645")
+            };
+            DataLayout.Controls.Add(GyroscopeX);
+
             DataLayout.Controls.Add(new Label(
-                column2x + smallMargin,
-                202,
+                column2 + smallMargin,
+                sensorBarY,
                 font6x8.Width * 2,
                 font6x8.Height * 2)
             {
@@ -408,9 +453,19 @@ namespace WinFormsMeadow.Views
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
+            GyroscopeY = new Box(
+                column2 + font6x8.Width * 2 + margin,
+                sensorBarY,
+                sensorBarInitialWidth,
+                sensorBarHeight)
+            {
+                ForeColor = Meadow.Foundation.Color.FromHex("C9DB31")
+            };
+            DataLayout.Controls.Add(GyroscopeY);
+
             DataLayout.Controls.Add(new Label(
-                column2x + smallMargin,
-                220,
+                column2 + smallMargin,
+                sensorBarZ,
                 font6x8.Width * 2,
                 font6x8.Height * 2)
             {
@@ -419,60 +474,45 @@ namespace WinFormsMeadow.Views
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
-            DataLayout.Controls.Add(new Box(
-                222,
-                184,
-                92,
-                14)
-            {
-                ForeColor = Meadow.Foundation.Color.FromHex("98A645")
-            });
-            DataLayout.Controls.Add(new Box(
-                222,
-                202,
-                92,
-                14)
-            {
-                ForeColor = Meadow.Foundation.Color.FromHex("C9DB31")
-            });
-            DataLayout.Controls.Add(new Box(
-                222,
-                220,
-                92,
-                14)
+            GyroscopeZ = new Box(
+                column2 + font6x8.Width * 2 + margin,
+                sensorBarZ,
+                sensorBarInitialWidth,
+                sensorBarHeight)
             {
                 ForeColor = Meadow.Foundation.Color.FromHex("E1EB8B")
-            });
+            };
+            DataLayout.Controls.Add(GyroscopeZ);
             #endregion
 
             #region CLOCK
             DataLayout.Controls.Add(new Box(
-                244,
-                row1x,
-                71,
+                clockX,
+                row1,
+                clockWidth,
                 rowHeight)
             {
                 ForeColor = ForegroundColor
             });
             Date = new Label(
-                244,
-                row1x + smallMargin,
-                71,
+                clockX,
+                row1 + smallMargin,
+                clockWidth,
                 font6x8.Height)
             {
-                Text = $"2023/11/20",
+                Text = $"----/--/--",
                 TextColor = backgroundColor,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Font = font6x8
             };
             DataLayout.Controls.Add(Date);
             Time = new Label(
-                244,
-                row1x + font6x8.Height + smallMargin * 2,
-                71,
+                clockX,
+                row1 + font6x8.Height + smallMargin * 2,
+                clockWidth,
                 font6x8.Height * 2)
             {
-                Text = $"12:12",
+                Text = $"--:--",
                 TextColor = backgroundColor,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Font = font6x8,
@@ -485,8 +525,8 @@ namespace WinFormsMeadow.Views
             Up = new Box(
                 218,
                 136,
-                9,
-                9)
+                dPadSize,
+                dPadSize)
             {
                 ForeColor = ForegroundColor
             };
@@ -494,8 +534,8 @@ namespace WinFormsMeadow.Views
             Down = new Box(
                 218,
                 156,
-                9,
-                9)
+                dPadSize,
+                dPadSize)
             {
                 ForeColor = ForegroundColor
             };
@@ -503,8 +543,8 @@ namespace WinFormsMeadow.Views
             Left = new Box(
                 208,
                 146,
-                9,
-                9)
+                dPadSize,
+                dPadSize)
             {
                 ForeColor = ForegroundColor
             };
@@ -512,8 +552,8 @@ namespace WinFormsMeadow.Views
             Right = new Box(
                 228,
                 146,
-                9,
-                9)
+                dPadSize,
+                dPadSize)
             {
                 ForeColor = ForegroundColor
             };
@@ -626,6 +666,24 @@ namespace WinFormsMeadow.Views
             }
         }
 
+        protected void UpdateAccelerometerReading(double x, double y, double z)
+        {
+            DisplayScreen.BeginUpdate();
+            AccelerometerX.Width = (int)x * 10 + 5;
+            AccelerometerY.Width = (int)y * 10 + 5;
+            AccelerometerZ.Width = (int)z * 10 + 5;
+            DisplayScreen.EndUpdate();
+        }
+
+        protected void UpdateGyroscopeReading(double x, double y, double z)
+        {
+            DisplayScreen.BeginUpdate();
+            GyroscopeX.Width = (int)x * 10 + 5;
+            GyroscopeY.Width = (int)y * 10 + 5;
+            GyroscopeZ.Width = (int)z * 10 + 5;
+            DisplayScreen.EndUpdate();
+        }
+
         public async Task Run()
         {
             //ShowSplashScreen();
@@ -650,6 +708,10 @@ namespace WinFormsMeadow.Views
                 UpdateDirectionalPad(random.Next(0, 5));
 
                 UpdateSelectReading(random.Next(0, 4));
+
+                UpdateAccelerometerReading(random.Next(0, 3), random.Next(0, 3), random.Next(0, 3));
+
+                UpdateGyroscopeReading(random.Next(0, 3), random.Next(0, 3), random.Next(0, 3));
 
                 this.LineChartSeries.Points.Add(x, random.Next(2, 8));
                 x++;
