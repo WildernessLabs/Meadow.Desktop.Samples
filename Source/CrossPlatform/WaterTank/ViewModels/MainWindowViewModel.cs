@@ -1,4 +1,4 @@
-﻿using Meadow.Peripherals.Sensors;
+﻿using Meadow.Peripherals.Sensors.Distance;
 using Meadow.Units;
 using ReactiveUI;
 using System;

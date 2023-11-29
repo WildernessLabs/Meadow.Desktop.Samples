@@ -11,15 +11,38 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-      <None Remove="w_clear.jpg" />
+      <None Remove="img_meadow.bmp" />
+      <None Remove="img_refreshed.bmp" />
+      <None Remove="img_refreshing.bmp" />
+      <None Remove="img_wifi_connected.bmp" />
+      <None Remove="img_wifi_connecting.bmp" />
+      <None Remove="w_clear.bmp" />
+      <None Remove="w_cloudy.bmp" />
+      <None Remove="w_drizzle.bmp" />
+      <None Remove="w_misc.bmp" />
+      <None Remove="w_rain.bmp" />
+      <None Remove="w_snow.bmp" />
+      <None Remove="w_storm.bmp" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="w_clear.jpg" />
+      <EmbeddedResource Include="Resources\img_meadow.bmp" />
+      <EmbeddedResource Include="Resources\img_refreshed.bmp" />
+      <EmbeddedResource Include="Resources\img_refreshing.bmp" />
+      <EmbeddedResource Include="Resources\img_wifi_connected.bmp" />
+      <EmbeddedResource Include="Resources\img_wifi_connecting.bmp" />
+      <EmbeddedResource Include="Resources\w_clear.bmp" />
+      <EmbeddedResource Include="Resources\w_cloudy.bmp" />
+      <EmbeddedResource Include="Resources\w_drizzle.bmp" />
+      <EmbeddedResource Include="Resources\w_misc.bmp" />
+      <EmbeddedResource Include="Resources\w_rain.bmp" />
+      <EmbeddedResource Include="Resources\w_snow.bmp" />
+      <EmbeddedResource Include="Resources\w_storm.bmp" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="SimpleJpegDecoder" Version="*" />
     <PackageReference Include="Meadow.Windows" Version="*" />
     <PackageReference Include="Meadow.Foundation.Graphics.MicroGraphics" Version="*" />
+    <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
     <PackageReference Include="Meadow.Foundation.Displays.WinForms" Version="*" />
     </ItemGroup>
 </Project>
