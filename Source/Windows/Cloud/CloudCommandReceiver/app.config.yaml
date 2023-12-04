@@ -1,0 +1,7 @@
+﻿MeadowCloud:
+  Hostname: https://www.meadowcloud.co
+  DataHostname: https://collector.meadowcloud.dev
+Update:
+  Enabled: true
+  UpdateServer: mqtt.meadowcloud.co
+
