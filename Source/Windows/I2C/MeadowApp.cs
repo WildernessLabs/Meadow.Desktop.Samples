@@ -21,7 +21,7 @@ public class MeadowApp : App<Windows>
         var bus = _expander.CreateI2cBus();
 
         _mpu = new Mpu6050(bus);
-        _mpu.TemperatureUpdated += _mpu_TemperatureUpdated;
+        _mpu.Updated += _mpu_TemperatureUpdated;
         _mpu.StartUpdating();
 
         //        var _bno = new Bno055(bus);
@@ -31,9 +31,9 @@ public class MeadowApp : App<Windows>
         return base.Initialize();
     }
 
-    private void _mpu_TemperatureUpdated(object? sender, IChangeResult<Meadow.Units.Temperature> e)
+    private void _mpu_TemperatureUpdated(object? sender, IChangeResult<(Meadow.Units.Acceleration3D? Acceleration3D, Meadow.Units.AngularVelocity3D? AngularVelocity3D, Meadow.Units.Temperature? Temperature)> e)
     {
-        Debug.WriteLine($"Temp: {e.New.Fahrenheit}");
+        Debug.WriteLine($"Temp: {e.New.Temperature.Value.Fahrenheit}");
     }
 
     private void OnEulerOrientationUpdated(object? sender, IChangeResult<Meadow.Foundation.Spatial.EulerAngles> e)
