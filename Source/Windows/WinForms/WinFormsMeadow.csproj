@@ -39,10 +39,10 @@
       <EmbeddedResource Include="Resources\w_storm.bmp" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="SimpleJpegDecoder" Version="*" />
-    <PackageReference Include="Meadow.Windows" Version="*" />
-    <PackageReference Include="Meadow.Foundation.Graphics.MicroGraphics" Version="*" />
-    <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
-    <PackageReference Include="Meadow.Foundation.Displays.WinForms" Version="*" />
+      <PackageReference Include="SimpleJpegDecoder" Version="*" />
+      <PackageReference Include="Meadow.Windows" Version="*" />
+      <PackageReference Include="Meadow.Foundation.Graphics.MicroGraphics" Version="*" />
+      <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+      <PackageReference Include="Meadow.Foundation.Displays.WinForms" Version="*" />
     </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ internal class SimulatedDistanceSensor : IRangeFinder
     private Length? _distance;
 
     public event EventHandler<IChangeResult<Length>> DistanceUpdated;
+    public event EventHandler<IChangeResult<Length>> Updated;
 
     public Length MaxDistance { get; }
     public TimeSpan UpdateInterval => new TimeSpan(0);
