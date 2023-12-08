@@ -6,6 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.Windows" Version="*" />
+    <ProjectReference Include="..\..\..\..\Meadow.Core\source\implementations\windows\Meadow.Windows\Meadow.Windows.csproj" />
   </ItemGroup>
 </Project>
