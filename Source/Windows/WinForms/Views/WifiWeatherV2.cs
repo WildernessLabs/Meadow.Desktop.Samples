@@ -9,13 +9,25 @@ namespace WinFormsMeadow.Views
     {
         private Meadow.Foundation.Color backgroundColor = Meadow.Foundation.Color.FromHex("10485E");
         private Meadow.Foundation.Color selectedColor = Meadow.Foundation.Color.FromHex("C9DB31");
-        private Meadow.Foundation.Color accentColor = Meadow.Foundation.Color.FromHex("EF7D3B");
         private Meadow.Foundation.Color ForegroundColor = Meadow.Foundation.Color.FromHex("EEEEEE");
-        private Font12x20 font12X20 = new Font12x20();
-        private Font8x12 font8x12 = new Font8x12();
         private Font8x16 font8x16 = new Font8x16();
         private Font6x8 font6x8 = new Font6x8();
+
         private int margin = 5;
+        readonly int smallMargin = 3;
+        readonly int graphHeight = 105;
+
+        readonly int measureBoxWidth = 82;
+
+        readonly int columnWidth = 100;
+
+        readonly int rowHeight = 30;
+        readonly int row1 = 135;
+        readonly int row2 = 170;
+        readonly int row3 = 205;
+
+        Image weatherIcon = Image.LoadFromResource("WifiWeather.Resources.w_misc.bmp");
+
         public LineChartSeries LineChartSeries { get; set; }
         protected DisplayScreen DisplayScreen { get; set; }
         protected AbsoluteLayout SplashLayout { get; set; }
@@ -23,7 +35,7 @@ namespace WinFormsMeadow.Views
         protected LineChart LineChart { get; set; }
         protected Picture WifiStatus { get; set; }
         protected Picture SyncStatus { get; set; }
-        protected Picture WeatherIcon { get; set; }
+        protected Picture Weather { get; set; }
         protected Label Status { get; set; }
 
         protected Box TemperatureBox { get; set; }
@@ -120,6 +132,199 @@ namespace WinFormsMeadow.Views
                 VerticalAlignment = VerticalAlignment.Center,
             };
             DataLayout.Controls.Add(SyncStatus);
+
+            DataLayout.Controls.Add(new Box(
+                5, 25, 310, 105)
+            {
+                ForeColor = Meadow.Foundation.Color.Black,
+            });
+
+            var weatherImage = Image.LoadFromResource("WinFormsMeadow.Resources.w_clear.bmp");
+            Weather = new Picture(
+                margin,
+                row1,
+                100,
+                100,
+                weatherImage)
+            {
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+            };
+            DataLayout.Controls.Add(Weather);
+
+            #region TEMPERATURE
+            TemperatureBox = new Box(
+                columnWidth + margin * 2,
+                row1,
+                columnWidth,
+                rowHeight)
+            {
+                ForeColor = selectedColor
+            };
+            DataLayout.Controls.Add(TemperatureBox);
+            TemperatureLabel = new Label(
+                columnWidth + margin * 2 + smallMargin,
+                row1 + smallMargin,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height)
+            {
+                Text = $"TEMPERATURE",
+                TextColor = backgroundColor,
+                Font = font6x8
+            };
+            DataLayout.Controls.Add(TemperatureLabel);
+            TemperatureValue = new Label(
+                columnWidth + margin * 2 + smallMargin,
+                row1 + font6x8.Height + smallMargin * 2,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height * 2)
+            {
+                Text = $"-.-C",
+                TextColor = backgroundColor,
+                Font = font6x8,
+                ScaleFactor = ScaleFactor.X2
+            };
+            DataLayout.Controls.Add(TemperatureValue);
+            #endregion
+
+            #region PRESSURE
+            PressureBox = new Box(
+                columnWidth + margin * 2,
+                row2,
+                columnWidth,
+                rowHeight)
+            {
+                ForeColor = selectedColor
+            };
+            DataLayout.Controls.Add(PressureBox);
+            PressureLabel = new Label(
+                columnWidth + margin * 2 + smallMargin,
+                row2 + smallMargin,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height)
+            {
+                Text = $"PRESSURE",
+                TextColor = backgroundColor,
+                Font = font6x8
+            };
+            DataLayout.Controls.Add(PressureLabel);
+            PressureValue = new Label(
+                columnWidth + margin * 2 + smallMargin,
+                row2 + font6x8.Height + smallMargin * 2,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height * 2)
+            {
+                Text = $"-.-atm",
+                TextColor = backgroundColor,
+                Font = font6x8,
+                ScaleFactor = ScaleFactor.X2
+            };
+            DataLayout.Controls.Add(PressureValue);
+            #endregion
+
+            #region HUMIDITY
+            HumidityBox = new Box(
+                columnWidth + margin * 2,
+                row3,
+                columnWidth,
+                rowHeight)
+            {
+                ForeColor = selectedColor
+            };
+            DataLayout.Controls.Add(HumidityBox);
+            HumidityLabel = new Label(
+                columnWidth + margin * 2 + smallMargin,
+                row3 + smallMargin,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height)
+            {
+                Text = $"HUMIDITY",
+                TextColor = backgroundColor,
+                Font = font6x8
+            };
+            DataLayout.Controls.Add(HumidityLabel);
+            HumidityValue = new Label(
+                columnWidth + margin * 2 + smallMargin,
+                row3 + font6x8.Height + smallMargin * 2,
+                columnWidth - smallMargin * 2,
+                font6x8.Height * 2)
+            {
+                Text = $"-.-%",
+                TextColor = backgroundColor,
+                Font = font6x8,
+                ScaleFactor = ScaleFactor.X2
+            };
+            DataLayout.Controls.Add(HumidityValue);
+            #endregion
+
+            DataLayout.Controls.Add(new Label(
+                columnWidth * 2 + margin * 3 + smallMargin,
+                row1 + smallMargin,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height)
+            {
+                Text = $"FEELS LIKE",
+                TextColor = ForegroundColor,
+                Font = font6x8
+            });
+            FeelsLike = new Label(
+                columnWidth * 2 + margin * 3 + smallMargin,
+                row1 + font6x8.Height + smallMargin * 2,
+                columnWidth - smallMargin * 2,
+                font6x8.Height * 2)
+            {
+                Text = $"-.-C",
+                TextColor = ForegroundColor,
+                Font = font6x8,
+                ScaleFactor = ScaleFactor.X2
+            };
+            DataLayout.Controls.Add(FeelsLike);
+
+            DataLayout.Controls.Add(new Label(
+                columnWidth * 2 + margin * 3 + smallMargin,
+                row2 + smallMargin,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height)
+            {
+                Text = $"SUNRISE",
+                TextColor = ForegroundColor,
+                Font = font6x8
+            });
+            Sunrise = new Label(
+                columnWidth * 2 + margin * 3 + smallMargin,
+                row2 + font6x8.Height + smallMargin * 2,
+                columnWidth - smallMargin * 2,
+                font6x8.Height * 2)
+            {
+                Text = $"00:00 AM",
+                TextColor = ForegroundColor,
+                Font = font6x8,
+                ScaleFactor = ScaleFactor.X2
+            };
+            DataLayout.Controls.Add(Sunrise);
+
+            DataLayout.Controls.Add(new Label(
+                columnWidth * 2 + margin * 3 + smallMargin,
+                row3 + smallMargin,
+                measureBoxWidth - smallMargin * 2,
+                font6x8.Height)
+            {
+                Text = $"SUNSET",
+                TextColor = ForegroundColor,
+                Font = font6x8
+            });
+            Sunset = new Label(
+                columnWidth * 2 + margin * 3 + smallMargin,
+                row3 + font6x8.Height + smallMargin * 2,
+                columnWidth - smallMargin * 2,
+                font6x8.Height * 2)
+            {
+                Text = $"00:00 AM",
+                TextColor = ForegroundColor,
+                Font = font6x8,
+                ScaleFactor = ScaleFactor.X2
+            };
+            DataLayout.Controls.Add(Sunset);
         }
 
         public void ShowSplashScreen()
@@ -155,13 +360,28 @@ namespace WinFormsMeadow.Views
             SyncStatus.Image = imageSync;
         }
 
-        protected void UpdateReadings(double temperature, double pressure, double humidity)
+        public void UpdateWeatherIcon(string icon)
+        {
+            weatherIcon = Image.LoadFromResource(icon);
+            Weather.Image = weatherIcon;
+        }
+
+        protected void UpdateReadings(
+            double temperature,
+            double pressure,
+            double humidity,
+            double feelsLike,
+            DateTime sunrise,
+            DateTime sunset)
         {
             DisplayScreen.BeginUpdate();
 
             TemperatureValue.Text = $"{temperature:N1}C";
             PressureValue.Text = $"{pressure:N1}atm";
             HumidityValue.Text = $"{humidity:N1}%";
+            FeelsLike.Text = $"{feelsLike:N1}C";
+            Sunrise.Text = $"{sunrise:hh:mm tt}";
+            Sunset.Text = $"{sunset:hh:mm tt}";
 
             DisplayScreen.EndUpdate();
         }
@@ -177,7 +397,13 @@ namespace WinFormsMeadow.Views
 
             while (true)
             {
-
+                UpdateReadings(
+                    random.NextDouble() * 100,
+                    random.NextDouble() * 100,
+                    random.NextDouble() * 100,
+                    random.NextDouble() * 100,
+                    DateTime.Now,
+                    DateTime.Now);
 
                 await Task.Delay(1000);
             }
