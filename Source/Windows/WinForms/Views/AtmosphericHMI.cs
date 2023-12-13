@@ -20,8 +20,8 @@ namespace WinFormsMeadow.Views
 
         protected Label Temperature { get; set; }
 
-        Meadow.Foundation.Color backgroundColor = Meadow.Foundation.Color.FromHex("#F3F7FA");
-        Meadow.Foundation.Color foregroundColor = Meadow.Foundation.Color.Black;
+        Meadow.Color backgroundColor = Meadow.Color.FromHex("#F3F7FA");
+        Meadow.Color foregroundColor = Meadow.Color.Black;
 
         Font12x20 font12X20 = new Font12x20();
 
@@ -34,19 +34,19 @@ namespace WinFormsMeadow.Views
 
             DisplayScreen.Controls.Add(new Box(0, 0, display.Width, rowHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("#5AC0EA")
+                ForeColor = Meadow.Color.FromHex("#5AC0EA")
             });
             DisplayScreen.Controls.Add(new Box(0, rowHeight, display.Width, rowHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("#84D0EF")
+                ForeColor = Meadow.Color.FromHex("#84D0EF")
             });
             DisplayScreen.Controls.Add(new Box(0, rowHeight * 2, display.Width, rowHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("#A3DCF3")
+                ForeColor = Meadow.Color.FromHex("#A3DCF3")
             });
             DisplayScreen.Controls.Add(new Box(0, rowHeight * 3, display.Width, rowHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("#B8E4F6")
+                ForeColor = Meadow.Color.FromHex("#B8E4F6")
             });
 
             DisplayScreen.Controls.Add(new Label(rowMargin, 0, DisplayScreen.Width / 2, rowHeight)
