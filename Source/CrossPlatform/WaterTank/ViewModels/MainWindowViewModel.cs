@@ -28,10 +28,10 @@ public class MainWindowViewModel : ViewModelBase
             throw new NotImplementedException();
         }
 
-        _rangeFinder.DistanceUpdated += OnDistanceUpdated;
+        _rangeFinder.Updated += DistanceUpdated;
     }
 
-    private void OnDistanceUpdated(object? sender, Meadow.IChangeResult<Length> e)
+    private void DistanceUpdated(object? sender, Meadow.IChangeResult<Length> e)
     {
         FillPercentage = (int)(e.New.Centimeters * 100 / _maxSensorLength.Centimeters);
     }

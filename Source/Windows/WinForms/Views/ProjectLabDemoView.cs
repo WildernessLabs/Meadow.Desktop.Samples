@@ -83,10 +83,10 @@ namespace WinFormsMeadow.Views
 
         protected Label ConnectionErrorLabel { get; set; }
 
-        private Meadow.Foundation.Color backgroundColor = Meadow.Foundation.Color.FromHex("10485E");
-        private Meadow.Foundation.Color selectedColor = Meadow.Foundation.Color.FromHex("C9DB31");
-        private Meadow.Foundation.Color accentColor = Meadow.Foundation.Color.FromHex("EF7D3B");
-        private Meadow.Foundation.Color ForegroundColor = Meadow.Foundation.Color.FromHex("EEEEEE");
+        private Meadow.Color backgroundColor = Meadow.Color.FromHex("10485E");
+        private Meadow.Color selectedColor = Meadow.Color.FromHex("C9DB31");
+        private Meadow.Color accentColor = Meadow.Color.FromHex("EF7D3B");
+        private Meadow.Color ForegroundColor = Meadow.Color.FromHex("EEEEEE");
         private Font12x20 font12X20 = new Font12x20();
         private Font8x12 font8x12 = new Font8x12();
         private Font8x16 font8x16 = new Font8x16();
@@ -118,7 +118,7 @@ namespace WinFormsMeadow.Views
             var image = Image.LoadFromResource("WinFormsMeadow.Resources.img_meadow.bmp");
             var displayImage = new Picture(0, 0, DisplayScreen.Width, DisplayScreen.Height, image)
             {
-                BackColor = Meadow.Foundation.Color.FromHex("#14607F"),
+                BackColor = Meadow.Color.FromHex("#14607F"),
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
             };
@@ -143,7 +143,7 @@ namespace WinFormsMeadow.Views
                 font8x16.Height)
             {
                 Text = $"Project Lab v3",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font8x16
             });
 
@@ -179,7 +179,7 @@ namespace WinFormsMeadow.Views
                 DisplayScreen.Width - margin * 2,
                 graphHeight)
             {
-                BackgroundColor = Meadow.Foundation.Color.FromHex("082936"),
+                BackgroundColor = Meadow.Color.FromHex("082936"),
                 AxisColor = ForegroundColor,
                 ShowYAxisLabels = true,
                 Visible = false,
@@ -341,7 +341,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height)
             {
                 Text = $"ACCELEROMETER (g)",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8
             });
 
@@ -352,7 +352,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"X",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
@@ -362,7 +362,7 @@ namespace WinFormsMeadow.Views
                 sensorBarInitialWidth,
                 sensorBarHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("98A645")
+                ForeColor = Meadow.Color.FromHex("98A645")
             };
             DataLayout.Controls.Add(AccelerometerX);
 
@@ -373,7 +373,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"Y",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
@@ -383,7 +383,7 @@ namespace WinFormsMeadow.Views
                 sensorBarInitialWidth,
                 sensorBarHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("C9DB31")
+                ForeColor = Meadow.Color.FromHex("C9DB31")
             };
             DataLayout.Controls.Add(AccelerometerY);
 
@@ -394,7 +394,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"Z",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
@@ -404,7 +404,7 @@ namespace WinFormsMeadow.Views
                 sensorBarInitialWidth,
                 sensorBarHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("E1EB8B")
+                ForeColor = Meadow.Color.FromHex("E1EB8B")
             };
             DataLayout.Controls.Add(AccelerometerZ);
             #endregion
@@ -417,7 +417,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height)
             {
                 Text = $"GYROSCOPE (rpm)",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8
             });
 
@@ -428,7 +428,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"X",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
@@ -438,7 +438,7 @@ namespace WinFormsMeadow.Views
                 sensorBarInitialWidth,
                 sensorBarHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("98A645")
+                ForeColor = Meadow.Color.FromHex("98A645")
             };
             DataLayout.Controls.Add(GyroscopeX);
 
@@ -449,7 +449,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"Y",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
@@ -459,7 +459,7 @@ namespace WinFormsMeadow.Views
                 sensorBarInitialWidth,
                 sensorBarHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("C9DB31")
+                ForeColor = Meadow.Color.FromHex("C9DB31")
             };
             DataLayout.Controls.Add(GyroscopeY);
 
@@ -470,7 +470,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"Z",
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             });
@@ -480,7 +480,7 @@ namespace WinFormsMeadow.Views
                 sensorBarInitialWidth,
                 sensorBarHeight)
             {
-                ForeColor = Meadow.Foundation.Color.FromHex("E1EB8B")
+                ForeColor = Meadow.Color.FromHex("E1EB8B")
             };
             DataLayout.Controls.Add(GyroscopeZ);
             #endregion

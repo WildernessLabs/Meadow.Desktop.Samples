@@ -33,8 +33,8 @@ namespace WifiWeather.Views
 
         protected Label WindSpeed { get; set; }
 
-        Meadow.Foundation.Color backgroundColor = Meadow.Foundation.Color.FromHex("#F3F7FA");
-        Meadow.Foundation.Color foregroundColor = Meadow.Foundation.Color.Black;
+        Meadow.Color backgroundColor = Meadow.Color.FromHex("#F3F7FA");
+        Meadow.Color foregroundColor = Meadow.Color.Black;
 
         Font12x20 font12X20 = new Font12x20();
         Font12x16 font12X16 = new Font12x16();
