@@ -1,15 +1,18 @@
-﻿using Meadow.Foundation.Graphics;
+﻿using Meadow;
+using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace WinFormsMeadow.Views
 {
     internal class WifiWeatherV2
     {
-        private Meadow.Foundation.Color backgroundColor = Meadow.Foundation.Color.FromHex("10485E");
-        private Meadow.Foundation.Color selectedColor = Meadow.Foundation.Color.FromHex("C9DB31");
-        private Meadow.Foundation.Color ForegroundColor = Meadow.Foundation.Color.FromHex("EEEEEE");
+        private Color backgroundColor = Color.FromHex("10485E");
+        private Color outdoorColor = Color.FromHex("C9DB31");
+        private Color ForegroundColor = Color.FromHex("EEEEEE");
         private Font8x16 font8x16 = new Font8x16();
         private Font6x8 font6x8 = new Font6x8();
 
@@ -26,9 +29,9 @@ namespace WinFormsMeadow.Views
         readonly int row2 = 170;
         readonly int row3 = 205;
 
-        Image weatherIcon = Image.LoadFromResource("WifiWeather.Resources.w_misc.bmp");
+        Image weatherIcon = Image.LoadFromResource($"WinFormsMeadow.Resources.w_misc.bmp");
 
-        public LineChartSeries LineChartSeries { get; set; }
+        public LineChartSeries OutdoorSeries { get; set; }
         protected DisplayScreen DisplayScreen { get; set; }
         protected AbsoluteLayout SplashLayout { get; set; }
         protected AbsoluteLayout DataLayout { get; set; }
@@ -80,7 +83,7 @@ namespace WinFormsMeadow.Views
             var image = Image.LoadFromResource("WinFormsMeadow.Resources.img_meadow.bmp");
             var displayImage = new Picture(0, 0, DisplayScreen.Width, DisplayScreen.Height, image)
             {
-                BackColor = Meadow.Foundation.Color.FromHex("#14607F"),
+                BackColor = Color.FromHex("#14607F"),
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
             };
@@ -96,16 +99,18 @@ namespace WinFormsMeadow.Views
                 Visible = false
             };
 
-            DataLayout.Controls.Add(new Label(
+            Status = new Label(
                 margin,
-                margin,
-                DisplayScreen.Width / 2,
+                margin + 2,
+                152,
                 font8x16.Height)
             {
                 Text = $"Project Lab v3",
-                TextColor = Meadow.Foundation.Color.White,
-                Font = font8x16
-            });
+                TextColor = Color.White,
+                Font = font8x16,
+                VerticalAlignment = VerticalAlignment.Center,
+            };
+            DataLayout.Controls.Add(Status);
 
             var wifiImage = Image.LoadFromResource("WinFormsMeadow.Resources.img_wifi_connecting.bmp");
             WifiStatus = new Picture(
@@ -133,13 +138,31 @@ namespace WinFormsMeadow.Views
             };
             DataLayout.Controls.Add(SyncStatus);
 
-            DataLayout.Controls.Add(new Box(
-                5, 25, 310, 105)
+            LineChart = new LineChart(
+            margin,
+            25,
+            DisplayScreen.Width - margin * 2,
+            graphHeight)
             {
-                ForeColor = Meadow.Foundation.Color.Black,
-            });
+                BackgroundColor = Color.FromHex("082936"),
+                AxisColor = ForegroundColor,
+                ShowYAxisLabels = true,
+                Visible = false,
+                AlwaysShowYOrigin = false,
+            };
+            OutdoorSeries = new LineChartSeries()
+            {
+                LineColor = outdoorColor,
+                PointColor = outdoorColor,
+                LineStroke = 1,
+                PointSize = 2,
+                ShowLines = true,
+                ShowPoints = true,
+            };
+            LineChart.Series.Add(OutdoorSeries);
+            DataLayout.Controls.Add(LineChart);
 
-            var weatherImage = Image.LoadFromResource("WinFormsMeadow.Resources.w_clear.bmp");
+            var weatherImage = Image.LoadFromResource("WinFormsMeadow.Resources.w_misc.bmp");
             Weather = new Picture(
                 margin,
                 row1,
@@ -159,7 +182,7 @@ namespace WinFormsMeadow.Views
                 columnWidth,
                 rowHeight)
             {
-                ForeColor = selectedColor
+                ForeColor = outdoorColor
             };
             DataLayout.Controls.Add(TemperatureBox);
             TemperatureLabel = new Label(
@@ -194,7 +217,7 @@ namespace WinFormsMeadow.Views
                 columnWidth,
                 rowHeight)
             {
-                ForeColor = selectedColor
+                ForeColor = backgroundColor
             };
             DataLayout.Controls.Add(PressureBox);
             PressureLabel = new Label(
@@ -204,7 +227,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height)
             {
                 Text = $"PRESSURE",
-                TextColor = backgroundColor,
+                TextColor = ForegroundColor,
                 Font = font6x8
             };
             DataLayout.Controls.Add(PressureLabel);
@@ -214,8 +237,8 @@ namespace WinFormsMeadow.Views
                 measureBoxWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
-                Text = $"-.-atm",
-                TextColor = backgroundColor,
+                Text = $"-.-hPa",
+                TextColor = ForegroundColor,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             };
@@ -229,7 +252,7 @@ namespace WinFormsMeadow.Views
                 columnWidth,
                 rowHeight)
             {
-                ForeColor = selectedColor
+                ForeColor = backgroundColor
             };
             DataLayout.Controls.Add(HumidityBox);
             HumidityLabel = new Label(
@@ -239,7 +262,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height)
             {
                 Text = $"HUMIDITY",
-                TextColor = backgroundColor,
+                TextColor = ForegroundColor,
                 Font = font6x8
             };
             DataLayout.Controls.Add(HumidityLabel);
@@ -250,7 +273,7 @@ namespace WinFormsMeadow.Views
                 font6x8.Height * 2)
             {
                 Text = $"-.-%",
-                TextColor = backgroundColor,
+                TextColor = ForegroundColor,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
             };
@@ -296,7 +319,7 @@ namespace WinFormsMeadow.Views
                 columnWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
-                Text = $"00:00 AM",
+                Text = $"--:-- --",
                 TextColor = ForegroundColor,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
@@ -319,7 +342,7 @@ namespace WinFormsMeadow.Views
                 columnWidth - smallMargin * 2,
                 font6x8.Height * 2)
             {
-                Text = $"00:00 AM",
+                Text = $"--:-- --",
                 TextColor = ForegroundColor,
                 Font = font6x8,
                 ScaleFactor = ScaleFactor.X2
@@ -360,31 +383,67 @@ namespace WinFormsMeadow.Views
             SyncStatus.Image = imageSync;
         }
 
-        public void UpdateWeatherIcon(string icon)
-        {
-            weatherIcon = Image.LoadFromResource(icon);
-            Weather.Image = weatherIcon;
+        private void UpdateReadingType(int type) 
+        { 
+            TemperatureBox.ForeColor = PressureBox.ForeColor = HumidityBox.ForeColor = backgroundColor;
+            TemperatureLabel.TextColor = PressureLabel.TextColor = HumidityLabel.TextColor = ForegroundColor;
+            TemperatureValue.TextColor = PressureValue.TextColor = HumidityValue.TextColor = ForegroundColor;
+
+            switch (type)
+            {
+                case 0:
+                    TemperatureBox.ForeColor = outdoorColor;
+                    TemperatureLabel.TextColor = backgroundColor;
+                    TemperatureValue.TextColor = backgroundColor;
+                    break;
+                case 1:
+                    PressureBox.ForeColor = outdoorColor;
+                    PressureLabel.TextColor = backgroundColor;
+                    PressureValue.TextColor = backgroundColor;
+                    break;
+                case 2:
+                    HumidityBox.ForeColor = outdoorColor;
+                    HumidityLabel.TextColor = backgroundColor;
+                    HumidityLabel.TextColor = backgroundColor;
+                    break;
+            }
         }
 
-        protected void UpdateReadings(
+        public void UpdateReadings(
+            int readingType,
+            string icon,
             double temperature,
-            double pressure,
             double humidity,
+            double pressure,
             double feelsLike,
             DateTime sunrise,
-            DateTime sunset)
+            DateTime sunset,
+            List<double> outdoorReadings)
         {
             DisplayScreen.BeginUpdate();
 
-            TemperatureValue.Text = $"{temperature:N1}C";
-            PressureValue.Text = $"{pressure:N1}atm";
+            UpdateReadingType(readingType);
+
+            weatherIcon = Image.LoadFromResource(icon);
+            Weather.Image = weatherIcon;
+
+            TemperatureValue.Text = $"{temperature:N1}'C";
             HumidityValue.Text = $"{humidity:N1}%";
-            FeelsLike.Text = $"{feelsLike:N1}C";
+            PressureValue.Text = $"{pressure:N2}atm";
+            FeelsLike.Text = $"{feelsLike:N1}'C";
             Sunrise.Text = $"{sunrise:hh:mm tt}";
             Sunset.Text = $"{sunset:hh:mm tt}";
 
+            OutdoorSeries.Points.Clear();
+
+            for (var p = 0; p < outdoorReadings.Count; p++)
+            {
+                OutdoorSeries.Points.Add(p * 2, outdoorReadings[p]);
+            }
+
             DisplayScreen.EndUpdate();
         }
+
         public async Task Run()
         {
             //ShowSplashScreen();
@@ -395,15 +454,28 @@ namespace WinFormsMeadow.Views
 
             int x = 0;
 
+            var outdoorList = new List<double>
+            {
+                1,
+                2,
+                3,
+                4
+            };
+
             while (true)
             {
+                UpdateStatus(DateTime.Now.ToString("hh:mm tt | dd/MM/yy"));
+
                 UpdateReadings(
+                    1,
+                    "WinFormsMeadow.Resources.w_clear.bmp",
                     random.NextDouble() * 100,
                     random.NextDouble() * 100,
                     random.NextDouble() * 100,
                     random.NextDouble() * 100,
                     DateTime.Now,
-                    DateTime.Now);
+                    DateTime.Now,
+                    outdoorList);
 
                 await Task.Delay(1000);
             }
