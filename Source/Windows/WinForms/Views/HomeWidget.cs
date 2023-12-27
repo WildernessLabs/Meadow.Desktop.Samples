@@ -1,4 +1,5 @@
-﻿using Meadow.Foundation.Graphics;
+﻿using Meadow;
+using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
 using System;
 using System.Threading.Tasks;
@@ -49,62 +50,97 @@ namespace WinFormsMeadow.Views
                 BackgroundColor = backgroundColor
             };
 
-            Weather = new Picture(x_padding, 25, 100, 100, _weatherIcon);
+            Weather = new Picture(x_padding, 10, 100, 100, _weatherIcon);
             DisplayScreen.Controls.Add(Weather);
 
-            //DayOfWeek = new Label(DisplayScreen.Width / 2 - x_padding, 25, DisplayScreen.Width / 2, font12X20.Height)
-            //{
-            //    Text = $"Monday,1st",
-            //    TextColor = foregroundColor,
-            //    BackColor = backgroundColor,
-            //    Font = font12X20,
-            //    VerticalAlignment = VerticalAlignment.Top,
-            //    HorizontalAlignment = HorizontalAlignment.Right
-            //};
-            //DisplayScreen.Controls.Add(DayOfWeek);
-
-            //Month = new Label(DisplayScreen.Width / 2 - x_padding, 50, DisplayScreen.Width / 2, font12X20.Height * 2, ScaleFactor.X2)
-            //{
-            //    Text = $"Jan",
-            //    TextColor = foregroundColor,
-            //    BackColor = backgroundColor,
-            //    Font = font12X20,
-            //    VerticalAlignment = VerticalAlignment.Top,
-            //    HorizontalAlignment = HorizontalAlignment.Right
-            //};
-            //DisplayScreen.Controls.Add(Month);
-
-            //Year = new Label(DisplayScreen.Width / 2 - x_padding, 95, DisplayScreen.Width / 2, font12X20.Height * 2, ScaleFactor.X2)
-            //{
-            //    Text = $"0000",
-            //    TextColor = foregroundColor,
-            //    BackColor = backgroundColor,
-            //    Font = font12X16,
-            //    VerticalAlignment = VerticalAlignment.Top,
-            //    HorizontalAlignment = HorizontalAlignment.Right
-            //};
-            //DisplayScreen.Controls.Add(Year);
-
-            //Time = new Label(0, 150, DisplayScreen.Width, font12X20.Height * 2, ScaleFactor.X2)
-            //{
-            //    Text = $"00:00:00 AM",
-            //    TextColor = foregroundColor,
-            //    BackColor = backgroundColor,
-            //    Font = font12X20,
-            //    VerticalAlignment = VerticalAlignment.Top,
-            //    HorizontalAlignment = HorizontalAlignment.Center
-            //};
-            //DisplayScreen.Controls.Add(Time);
-
-            DisplayScreen.Controls.Add(new Label(x_padding, 220, DisplayScreen.Width / 2, font12X20.Height * 2)
+            DisplayScreen.Controls.Add(new Label(120, 10, 170, font12X20.Height)
             {
-                Text = $"This week:",
+                Text = $"2023 December",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right
+            });
+
+            DisplayScreen.Controls.Add(new Label(120, 40, 170, font12X20.Height)
+            {
+                Text = $"Monday 25th",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right
+            });
+
+            DisplayScreen.Controls.Add(new Label(120, 70, 170, font12X20.Height * 2)
+            {
+                Text = $"12:00",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                ScaleFactor = ScaleFactor.X2,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right
+            });
+
+            DisplayScreen.Controls.Add(new Label(x_padding, 120, 135, font12X20.Height)
+            {
+                Text = $"TEMPERATURE",
                 TextColor = foregroundColor,
                 BackColor = backgroundColor,
                 Font = font12X20,
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left
             });
+
+            DisplayScreen.Controls.Add(new Label(155, 120, 135, font12X20.Height)
+            {
+                Text = $"HUMIDITY",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right
+            });
+
+            DisplayScreen.Controls.Add(new Label(x_padding, 150, 135, font12X20.Height * 2)
+            {
+                Text = $"25.4C",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                ScaleFactor = ScaleFactor.X2,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Center
+            });
+
+            DisplayScreen.Controls.Add(new Label(155, 150, 135, font12X20.Height * 2)
+            {
+                Text = $"75%",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                ScaleFactor = ScaleFactor.X2,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right
+            });
+
+            DisplayScreen.Controls.Add(new Box(10, 204, 280, 1)
+            {
+                ForeColor = Color.Black
+            });
+
+            DisplayScreen.Controls.Add(new Label(x_padding, 220, DisplayScreen.Width / 2, font12X20.Height)
+            {
+                Text = $"UPCOMING WEEK (#2):",
+                TextColor = foregroundColor,
+                BackColor = backgroundColor,
+                Font = font12X20,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left
+            });
+
             DisplayScreen.Controls.Add(new Label(x_padding, 250, DisplayScreen.Width / 2, font12X20.Height)
             {
                 Text = $"- Japan Curry + Rice",
@@ -114,6 +150,7 @@ namespace WinFormsMeadow.Views
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left
             });
+
             DisplayScreen.Controls.Add(new Label(x_padding, 280, DisplayScreen.Width / 2, font12X20.Height)
             {
                 Text = $"- Baked Pasta",
@@ -123,15 +160,17 @@ namespace WinFormsMeadow.Views
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left
             });
-            DisplayScreen.Controls.Add(new Label(x_padding, 310, DisplayScreen.Width / 2, font12X20.Height * 2)
+
+            DisplayScreen.Controls.Add(new Label(x_padding, 310, DisplayScreen.Width / 2, font12X20.Height)
             {
-                Text = $"Next week:",
+                Text = $"WEEK AFTER (#3):",
                 TextColor = foregroundColor,
                 BackColor = backgroundColor,
                 Font = font12X20,
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left
             });
+
             DisplayScreen.Controls.Add(new Label(x_padding, 340, DisplayScreen.Width / 2, font12X20.Height)
             {
                 Text = $"- Japan Curry + Rice",
@@ -141,6 +180,7 @@ namespace WinFormsMeadow.Views
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left
             });
+
             DisplayScreen.Controls.Add(new Label(x_padding, 370, DisplayScreen.Width / 2, font12X20.Height)
             {
                 Text = $"- Baked Pasta",
