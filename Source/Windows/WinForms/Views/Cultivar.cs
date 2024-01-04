@@ -9,12 +9,13 @@ namespace WinFormsMeadow.Views
     {
         DisplayScreen screen;
 
-        Image imgWifi = Image.LoadFromResource("WinFormsMeadow.img-wifi.bmp");
-        Image imgSync = Image.LoadFromResource("WinFormsMeadow.img-sync.bmp");
-        Image imgWifiFade = Image.LoadFromResource("WinFormsMeadow.img-wifi-fade.bmp");
-        Image imgSyncFade = Image.LoadFromResource("WinFormsMeadow.img-sync-fade.bmp");
-        Image imgRed = Image.LoadFromResource("WinFormsMeadow.img-red.bmp");
-        Image imgGreen = Image.LoadFromResource("WinFormsMeadow.img-green.bmp");
+        Image imgWifi = Image.LoadFromResource("WinFormsMeadow.Resources.img-wifi.bmp");
+        Image imgSync = Image.LoadFromResource("WinFormsMeadow.Resources.img-sync.bmp");
+
+        Image imgRed = Image.LoadFromResource("WinFormsMeadow.Resources.img-red.bmp");
+        Image imgGreen = Image.LoadFromResource("WinFormsMeadow.Resources.img-green.bmp");
+        Image imgWifiFade = Image.LoadFromResource("WinFormsMeadow.Resources.img-wifi-fade.bmp");
+        Image imgSyncFade = Image.LoadFromResource("WinFormsMeadow.Resources.img-sync-fade.bmp");
 
         protected Label StatusLabel { get; set; }
 
@@ -40,19 +41,19 @@ namespace WinFormsMeadow.Views
         {
             screen = new DisplayScreen(_display);
 
-            screen.Controls.Add(new Box(0, 0, screen.Width, screen.Height) { ForeColor = Meadow.Foundation.Color.White });
-            screen.Controls.Add(new Box(0, 27, 106, 93) { ForeColor = Meadow.Foundation.Color.FromHex("#B35E2C") });
-            screen.Controls.Add(new Box(106, 27, 108, 93) { ForeColor = Meadow.Foundation.Color.FromHex("#1A80AA") });
-            screen.Controls.Add(new Box(214, 27, 106, 93) { ForeColor = Meadow.Foundation.Color.FromHex("#98A645") });
+            screen.Controls.Add(new Box(0, 0, screen.Width, screen.Height) { ForeColor = Meadow.Color.White });
+            screen.Controls.Add(new Box(0, 27, 106, 93) { ForeColor = Meadow.Color.FromHex("#B35E2C") });
+            screen.Controls.Add(new Box(106, 27, 108, 93) { ForeColor = Meadow.Color.FromHex("#1A80AA") });
+            screen.Controls.Add(new Box(214, 27, 106, 93) { ForeColor = Meadow.Color.FromHex("#98A645") });
 
-            screen.Controls.Add(new Box(160, 120, 1, screen.Height) { ForeColor = Meadow.Foundation.Color.Black, Filled = false });
-            screen.Controls.Add(new Box(0, 180, screen.Width, 1) { ForeColor = Meadow.Foundation.Color.Black, Filled = false });
+            screen.Controls.Add(new Box(160, 120, 1, screen.Height) { ForeColor = Meadow.Color.Black, IsFilled = false });
+            screen.Controls.Add(new Box(0, 180, screen.Width, 1) { ForeColor = Meadow.Color.Black, IsFilled = false });
 
             StatusLabel = new Label(2, 6, 12, 16)
             {
                 Text = "Hello Meadow",
                 Font = new Font12x20(),
-                TextColor = Meadow.Foundation.Color.Black
+                TextColor = Meadow.Color.Black
             };
             screen.Controls.Add(StatusLabel);
 
@@ -66,46 +67,46 @@ namespace WinFormsMeadow.Views
             {
                 Text = "TEMP.",
                 Font = new Font12x16(),
-                TextColor = Meadow.Foundation.Color.White
+                TextColor = Meadow.Color.White
             });
             screen.Controls.Add(new Label(77, 99, 12, 16)
             {
                 Text = "°C",
                 Font = new Font12x20(),
-                TextColor = Meadow.Foundation.Color.White
+                TextColor = Meadow.Color.White
             });
 
             screen.Controls.Add(new Label(111, 32, 12, 16)
             {
                 Text = "HUM.",
                 Font = new Font12x16(),
-                TextColor = Meadow.Foundation.Color.White
+                TextColor = Meadow.Color.White
             });
             screen.Controls.Add(new Label(197, 99, 12, 16)
             {
                 Text = "%",
                 Font = new Font12x20(),
-                TextColor = Meadow.Foundation.Color.White
+                TextColor = Meadow.Color.White
             });
 
             screen.Controls.Add(new Label(219, 32, 12, 16)
             {
                 Text = "S.M.",
                 Font = new Font12x16(),
-                TextColor = Meadow.Foundation.Color.White
+                TextColor = Meadow.Color.White
             });
             screen.Controls.Add(new Label(303, 99, 12, 16)
             {
                 Text = "%",
                 Font = new Font12x20(),
-                TextColor = Meadow.Foundation.Color.White
+                TextColor = Meadow.Color.White
             });
 
             TemperatureLabel = new Label(50, 70, 12, 16, ScaleFactor.X2)
             {
                 Text = "31",
                 Font = new Font12x16(),
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
             screen.Controls.Add(TemperatureLabel);
@@ -113,7 +114,7 @@ namespace WinFormsMeadow.Views
             {
                 Text = "33",
                 Font = new Font12x16(),
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
             screen.Controls.Add(HumidityLabel);
@@ -121,7 +122,7 @@ namespace WinFormsMeadow.Views
             {
                 Text = "23",
                 Font = new Font12x16(),
-                TextColor = Meadow.Foundation.Color.White,
+                TextColor = Meadow.Color.White,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
             screen.Controls.Add(SoilMoistureLabel);
@@ -137,7 +138,7 @@ namespace WinFormsMeadow.Views
             {
                 Text = "Lights",
                 Font = new Font8x12(),
-                TextColor = Meadow.Foundation.Color.Black
+                TextColor = Meadow.Color.Black
             });
 
             ledWater = new Picture(168, 128, 46, 46, imgGreen)
@@ -150,7 +151,7 @@ namespace WinFormsMeadow.Views
             {
                 Text = "Water",
                 Font = new Font8x12(),
-                TextColor = Meadow.Foundation.Color.Black
+                TextColor = Meadow.Color.Black
             });
 
             ledVents = new Picture(8, 188, 46, 46, imgGreen)
@@ -163,7 +164,7 @@ namespace WinFormsMeadow.Views
             {
                 Text = "Vents",
                 Font = new Font8x12(),
-                TextColor = Meadow.Foundation.Color.Black
+                TextColor = Meadow.Color.Black
             });
 
             ledHeater = new Picture(168, 188, 46, 46, imgGreen)
@@ -176,7 +177,7 @@ namespace WinFormsMeadow.Views
             {
                 Text = "Heater",
                 Font = new Font8x12(),
-                TextColor = Meadow.Foundation.Color.Black
+                TextColor = Meadow.Color.Black
             });
         }
 

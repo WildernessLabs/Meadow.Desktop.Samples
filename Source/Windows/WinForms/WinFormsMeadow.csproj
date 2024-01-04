@@ -3,9 +3,7 @@
         <TargetFramework>net7.0-windows</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
         <OutputType>Exe</OutputType>
-        <AssemblyName>App</AssemblyName>   
-    </PropertyGroup>
-    <PropertyGroup>
+        <AssemblyName>App</AssemblyName>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>9.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -16,6 +14,16 @@
       <None Remove="img_refreshing.bmp" />
       <None Remove="img_wifi_connected.bmp" />
       <None Remove="img_wifi_connecting.bmp" />
+      <None Remove="img-sync-fade.bmp" />
+      <None Remove="img-sync.bmp" />
+      <None Remove="img-wifi-fade.bmp" />
+      <None Remove="img-wifi.bmp" />
+      <None Remove="Resources\img-green.bmp" />
+      <None Remove="Resources\img-red.bmp" />
+      <None Remove="Resources\img-sync-fade.bmp" />
+      <None Remove="Resources\img-sync.bmp" />
+      <None Remove="Resources\img-wifi-fade.bmp" />
+      <None Remove="Resources\img-wifi.bmp" />
       <None Remove="w_clear.bmp" />
       <None Remove="w_cloudy.bmp" />
       <None Remove="w_drizzle.bmp" />
@@ -27,6 +35,12 @@
       <None Remove="img-red.bmp" />
     </ItemGroup>
     <ItemGroup>
+      <EmbeddedResource Include="Resources\img-green.bmp" />
+      <EmbeddedResource Include="Resources\img-red.bmp" />
+      <EmbeddedResource Include="Resources\img-sync-fade.bmp" />
+      <EmbeddedResource Include="Resources\img-sync.bmp" />
+      <EmbeddedResource Include="Resources\img-wifi-fade.bmp" />
+      <EmbeddedResource Include="Resources\img-wifi.bmp" />
       <EmbeddedResource Include="Resources\img_meadow.bmp" />
       <EmbeddedResource Include="Resources\img_refreshed.bmp" />
       <EmbeddedResource Include="Resources\img_refreshing.bmp" />
@@ -39,8 +53,6 @@
       <EmbeddedResource Include="Resources\w_rain.bmp" />
       <EmbeddedResource Include="Resources\w_snow.bmp" />
       <EmbeddedResource Include="Resources\w_storm.bmp" />
-      <EmbeddedResource Include="img-green.bmp" />
-      <EmbeddedResource Include="img-red.bmp" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="SimpleJpegDecoder" Version="*" />
