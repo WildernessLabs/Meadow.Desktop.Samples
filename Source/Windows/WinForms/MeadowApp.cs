@@ -27,7 +27,7 @@ namespace WinFormsMeadow
 
             // Screen size of a ILI9341 display
             _display = new WinFormsDisplay(320, 240);
-            var views = new Cultivar(_display);
+            var views = new CultivarView(_display);
             //var views = new ProjectLabDemoView(_display);
             //var views = new AtmosphericHMI(_display);
             //var views = new WifiWeatherV2(_display);

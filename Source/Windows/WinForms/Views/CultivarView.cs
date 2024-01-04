@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsMeadow.Views
 {
-    public class Cultivar
+    public class CultivarView
     {
         DisplayScreen screen;
 
@@ -37,7 +37,7 @@ namespace WinFormsMeadow.Views
 
         protected Picture ledHeater { get; set; }
 
-        public Cultivar(IGraphicsDisplay _display)
+        public CultivarView(IGraphicsDisplay _display)
         {
             screen = new DisplayScreen(_display);
 
