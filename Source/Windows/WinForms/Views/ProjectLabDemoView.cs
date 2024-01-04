@@ -112,7 +112,7 @@ namespace WinFormsMeadow.Views
         {
             SplashLayout = new AbsoluteLayout(DisplayScreen, 0, 0, DisplayScreen.Width, DisplayScreen.Height)
             {
-                Visible = false
+                IsVisible = false
             };
 
             var image = Image.LoadFromResource("WinFormsMeadow.Resources.img_meadow.bmp");
@@ -133,7 +133,7 @@ namespace WinFormsMeadow.Views
             DataLayout = new AbsoluteLayout(DisplayScreen, 0, 0, DisplayScreen.Width, DisplayScreen.Height)
             {
                 BackgroundColor = backgroundColor,
-                Visible = false
+                IsVisible = false
             };
 
             DataLayout.Controls.Add(new Label(
@@ -182,7 +182,7 @@ namespace WinFormsMeadow.Views
                 BackgroundColor = Meadow.Color.FromHex("082936"),
                 AxisColor = ForegroundColor,
                 ShowYAxisLabels = true,
-                Visible = false,
+                IsVisible = false,
                 AlwaysShowYOrigin = false,
             };
             LineChartSeries = new LineChartSeries()
@@ -564,14 +564,14 @@ namespace WinFormsMeadow.Views
 
         public void ShowSplashScreen()
         {
-            DataLayout.Visible = false;
-            SplashLayout.Visible = true;
+            DataLayout.IsVisible = false;
+            SplashLayout.IsVisible = true;
         }
 
         public void ShowDataScreen()
         {
-            SplashLayout.Visible = false;
-            DataLayout.Visible = true;
+            SplashLayout.IsVisible = false;
+            DataLayout.IsVisible = true;
         }
 
         public void UpdateStatus(string status)
