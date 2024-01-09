@@ -1,6 +1,7 @@
 ﻿using Meadow;
 using Meadow.Foundation.ICs.IOExpanders;
 using Meadow.Foundation.Leds;
+using Meadow.Peripherals.Leds;
 
 public class MeadowApp : App<Windows>
 {

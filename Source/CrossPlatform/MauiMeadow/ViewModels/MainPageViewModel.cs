@@ -50,7 +50,7 @@ namespace MauiMeadow.ViewModels
                 y: 0,
                 width: graphics.Width,
                 height: graphics.Height,
-                color: Meadow.Foundation.Color.FromHex("10485E"),
+                color: Meadow.Color.FromHex("10485E"),
                 filled: true);
 
             graphics.DrawText(
