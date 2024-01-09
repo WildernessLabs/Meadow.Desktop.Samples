@@ -3,7 +3,6 @@ using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace WinFormsMeadow.Views
@@ -383,8 +382,8 @@ namespace WinFormsMeadow.Views
             SyncStatus.Image = imageSync;
         }
 
-        private void UpdateReadingType(int type) 
-        { 
+        private void UpdateReadingType(int type)
+        {
             TemperatureBox.ForeColor = PressureBox.ForeColor = HumidityBox.ForeColor = backgroundColor;
             TemperatureLabel.TextColor = PressureLabel.TextColor = HumidityLabel.TextColor = ForegroundColor;
             TemperatureValue.TextColor = PressureValue.TextColor = HumidityValue.TextColor = ForegroundColor;
@@ -427,10 +426,10 @@ namespace WinFormsMeadow.Views
             weatherIcon = Image.LoadFromResource(icon);
             Weather.Image = weatherIcon;
 
-            TemperatureValue.Text = $"{temperature:N1}'C";
+            TemperatureValue.Text = $"{temperature:N1}C";
             HumidityValue.Text = $"{humidity:N1}%";
             PressureValue.Text = $"{pressure:N2}atm";
-            FeelsLike.Text = $"{feelsLike:N1}'C";
+            FeelsLike.Text = $"{feelsLike:N1}C";
             Sunrise.Text = $"{sunrise:hh:mm tt}";
             Sunset.Text = $"{sunset:hh:mm tt}";
 
@@ -456,10 +455,15 @@ namespace WinFormsMeadow.Views
 
             var outdoorList = new List<double>
             {
-                1,
-                2,
-                3,
-                4
+                25.3,
+                26.1,
+                25.7,
+                27.9,
+                26.3,
+                25.6,
+                26.3,
+                27.2,
+                27.6
             };
 
             while (true)
@@ -467,15 +471,15 @@ namespace WinFormsMeadow.Views
                 UpdateStatus(DateTime.Now.ToString("hh:mm tt | dd/MM/yy"));
 
                 UpdateReadings(
-                    1,
-                    "WinFormsMeadow.Resources.w_clear.bmp",
-                    random.NextDouble() * 100,
-                    random.NextDouble() * 100,
-                    random.NextDouble() * 100,
-                    random.NextDouble() * 100,
-                    DateTime.Now,
-                    DateTime.Now,
-                    outdoorList);
+                    readingType: 0,
+                    icon: "WinFormsMeadow.Resources.w_clear.bmp",
+                    temperature: random.Next(10, 13),
+                    humidity: random.Next(65, 75),
+                    pressure: 1 + random.NextDouble(),
+                    feelsLike: random.Next(22, 25),
+                    sunrise: DateTime.Now,
+                    sunset: DateTime.Now.AddHours(8),
+                    outdoorReadings: outdoorList);
 
                 await Task.Delay(1000);
             }
