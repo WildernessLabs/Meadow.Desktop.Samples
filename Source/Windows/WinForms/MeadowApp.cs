@@ -18,16 +18,16 @@ namespace WinFormsMeadow
             //var views = new RotatingCube(_display);
 
             // Screen size of a ILI9488 display
-            //_display = new WinFormsDisplay(320, 480);
-            //var views = new WiFiWeather(_display);
+            _display = new WinFormsDisplay(320, 480);
+            var views = new WiFiWeather(_display);
 
             // Screen size of a EPD4IN2bV2 e-paper display
             //_display = new WinFormsDisplay(300, 400);
             //var views = new HomeWidget(_display);
 
             // Screen size of a ILI9341 display
-            _display = new WinFormsDisplay(320, 240);
-            var views = new CultivarView(_display);
+            //_display = new WinFormsDisplay(320, 240);
+            //var views = new CultivarView(_display);
             //var views = new ProjectLabDemoView(_display);
             //var views = new AtmosphericHMI(_display);
             //var views = new WifiWeatherV2(_display);
