@@ -429,7 +429,7 @@ namespace WinFormsMeadow.Views
             TemperatureValue.Text = $"{temperature:N1}C";
             HumidityValue.Text = $"{humidity:N1}%";
             PressureValue.Text = $"{pressure:N2}atm";
-            FeelsLike.Text = $"{feelsLike:N1}'C";
+            FeelsLike.Text = $"{feelsLike:N1}C";
             Sunrise.Text = $"{sunrise:hh:mm tt}";
             Sunset.Text = $"{sunset:hh:mm tt}";
 
