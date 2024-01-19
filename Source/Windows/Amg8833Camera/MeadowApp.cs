@@ -5,7 +5,7 @@ using Meadow.Foundation.ICs.IOExpanders;
 using Meadow.Foundation.Sensors.Camera;
 using System.Windows.Forms;
 
-public class MeadowApp : App<Windows>
+public class MeadowApp : App<Meadow.Windows>
 {
     private Ft232h _ft232h;
     private WinFormsDisplay _display;
