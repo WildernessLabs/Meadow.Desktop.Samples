@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Meadow.Core\source\implementations\mac\Meadow.Mac\Meadow.Mac.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Meadow.Core\source\implementations\linux\Meadow.Linux\Meadow.Linux.csproj" />
   </ItemGroup>
 
   <ItemGroup>

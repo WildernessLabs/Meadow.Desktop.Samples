@@ -1,6 +1,7 @@
 ﻿using Meadow;
 using Meadow.Cloud;
 using Meadow.Logging;
+using Meadow.Pinouts;
 
 public class MyCommand : IMeadowCommand
 {
@@ -8,7 +9,7 @@ public class MyCommand : IMeadowCommand
     public string? DisplayText { get; set; }
 }
 
-public class MeadowApp : App<Mac>
+public class MeadowApp : App<Linux<WSL2>>
 {
     public static async Task Main(string[] args)
     {
@@ -30,7 +31,7 @@ public class MeadowApp : App<Mac>
 
     private void OnCloudServiceError(object? sender, string e)
     {
-        Console.WriteLine($"CLOUD ERROR: {e}");
+        Resolver.Log.Info($"CLOUD ERROR: {e}");
     }
 
     private void HandleMyCommandReceived(MyCommand command)
@@ -39,7 +40,7 @@ public class MeadowApp : App<Mac>
 
         if (command.DisplayText != null && command.DisplayText.Length > 0)
         {
-            Console.WriteLine($"{Environment.NewLine}{command.DisplayText}");
+            Resolver.Log.Info($"{Environment.NewLine}{command.DisplayText}");
             Tick = 1;
         }
     }
