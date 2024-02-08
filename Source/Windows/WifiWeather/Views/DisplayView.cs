@@ -1,5 +1,6 @@
 ﻿using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
+using Meadow.Peripherals.Displays;
 
 namespace WifiWeather.Views
 {
@@ -40,7 +41,7 @@ namespace WifiWeather.Views
         Font12x16 font12X16 = new Font12x16();
         Font8x16 font8X16 = new Font8x16();
 
-        public DisplayView(IGraphicsDisplay display)
+        public DisplayView(IPixelDisplay display)
         {
             DisplayScreen = new DisplayScreen(display)
             {

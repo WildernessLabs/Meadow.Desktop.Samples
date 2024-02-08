@@ -1,5 +1,6 @@
 ﻿using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
+using Meadow.Peripherals.Displays;
 using System;
 using System.Threading.Tasks;
 
@@ -37,7 +38,7 @@ namespace WinFormsMeadow.Views
 
         protected Picture ledHeater { get; set; }
 
-        public CultivarView(IGraphicsDisplay _display)
+        public CultivarView(IPixelDisplay _display)
         {
             screen = new DisplayScreen(_display);
 

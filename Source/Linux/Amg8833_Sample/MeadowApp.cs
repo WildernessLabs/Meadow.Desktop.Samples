@@ -1,13 +1,13 @@
 ﻿using Meadow;
 using Meadow.Foundation.Displays;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
 using Meadow.Foundation.Sensors.Camera;
+using Meadow.Peripherals.Displays;
 using Meadow.Pinouts;
 
 public class MeadowApp : App<Linux<RaspberryPi>>
 {
-    private IGraphicsDisplay _display;
+    private IPixelDisplay _display;
     private DisplayScreen _screen;
     private Amg8833 _camera;
     private Box[] _pixelBoxes;

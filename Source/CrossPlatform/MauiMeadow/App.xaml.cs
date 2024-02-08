@@ -1,7 +1,7 @@
 ﻿using Meadow;
 using Meadow.Foundation.Displays;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.ICs.IOExpanders;
+using Meadow.Peripherals.Displays;
 using Meadow.UI;
 
 namespace MauiMeadow
@@ -18,7 +18,7 @@ namespace MauiMeadow
             MainPage = new AppShell();
         }
 
-        protected Task MeadowInitialize() 
+        protected Task MeadowInitialize()
         {
             var expander = new Ft232h();
 
@@ -30,7 +30,7 @@ namespace MauiMeadow
                 resetPin: expander.Pins.C2
             );
 
-            Resolver.Services.Add<IGraphicsDisplay>(display);
+            Resolver.Services.Add<IPixelDisplay>(display);
 
             return Task.CompletedTask;
         }
