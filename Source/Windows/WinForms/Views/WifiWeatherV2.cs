@@ -1,6 +1,7 @@
 ﻿using Meadow;
 using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
+using Meadow.Peripherals.Displays;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -56,7 +57,7 @@ namespace WinFormsMeadow.Views
         protected Label Sunrise { get; set; }
         protected Label Sunset { get; set; }
 
-        public WifiWeatherV2(IGraphicsDisplay display)
+        public WifiWeatherV2(IPixelDisplay display)
         {
             DisplayScreen = new DisplayScreen(display)
             {

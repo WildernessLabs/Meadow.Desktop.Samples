@@ -411,11 +411,11 @@ namespace PushButton_Sample
 
             _graphics.Clear();
 
-            _graphics.DrawTriangle(120, 20, 200, 100, 120, 100, Meadow.Foundation.Color.Red, false);
+            _graphics.DrawTriangle(120, 20, 200, 100, 120, 100, Meadow.Color.Red, false);
 
-            _graphics.DrawRectangle(140, 30, 40, 90, Meadow.Foundation.Color.Yellow, false);
+            _graphics.DrawRectangle(140, 30, 40, 90, Meadow.Color.Yellow, false);
 
-            _graphics.DrawCircle(160, 80, 40, Meadow.Foundation.Color.Cyan, false);
+            _graphics.DrawCircle(160, 80, 40, Meadow.Color.Cyan, false);
 
             int indent = 5;
             int spacing = 14;
@@ -423,25 +423,25 @@ namespace PushButton_Sample
 
             _graphics.DrawText(indent, y, "Meadow F7 SPI ST7789!!");
 
-            _graphics.DrawText(indent, y += spacing, "Red", Meadow.Foundation.Color.Red);
+            _graphics.DrawText(indent, y += spacing, "Red", Color.Red);
 
-            _graphics.DrawText(indent, y += spacing, "Purple", Meadow.Foundation.Color.Purple);
+            _graphics.DrawText(indent, y += spacing, "Purple", Color.Purple);
 
-            _graphics.DrawText(indent, y += spacing, "BlueViolet", Meadow.Foundation.Color.BlueViolet);
+            _graphics.DrawText(indent, y += spacing, "BlueViolet", Color.BlueViolet);
 
-            _graphics.DrawText(indent, y += spacing, "Blue", Meadow.Foundation.Color.Blue);
+            _graphics.DrawText(indent, y += spacing, "Blue", Color.Blue);
 
-            _graphics.DrawText(indent, y += spacing, "Cyan", Meadow.Foundation.Color.Cyan);
+            _graphics.DrawText(indent, y += spacing, "Cyan", Color.Cyan);
 
-            _graphics.DrawText(indent, y += spacing, "LawnGreen", Meadow.Foundation.Color.LawnGreen);
+            _graphics.DrawText(indent, y += spacing, "LawnGreen", Color.LawnGreen);
 
-            _graphics.DrawText(indent, y += spacing, "GreenYellow", Meadow.Foundation.Color.GreenYellow);
+            _graphics.DrawText(indent, y += spacing, "GreenYellow", Color.GreenYellow);
 
-            _graphics.DrawText(indent, y += spacing, "Yellow", Meadow.Foundation.Color.Yellow);
+            _graphics.DrawText(indent, y += spacing, "Yellow", Color.Yellow);
 
-            _graphics.DrawText(indent, y += spacing, "Orange", Meadow.Foundation.Color.Orange);
+            _graphics.DrawText(indent, y += spacing, "Orange", Color.Orange);
 
-            _graphics.DrawText(indent, y += spacing, "Brown", Meadow.Foundation.Color.Brown);
+            _graphics.DrawText(indent, y += spacing, "Brown", Color.Brown);
 
             _graphics.Show();
 
