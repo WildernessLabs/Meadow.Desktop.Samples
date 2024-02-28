@@ -1,5 +1,6 @@
 ﻿using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
+using Meadow.Peripherals.Displays;
 using System;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace WinFormsMeadow.Views
 
         Font12x20 font12X20 = new Font12x20();
 
-        public AtmosphericHMI(IGraphicsDisplay display)
+        public AtmosphericHMI(IPixelDisplay display)
         {
             DisplayScreen = new DisplayScreen(display)
             {

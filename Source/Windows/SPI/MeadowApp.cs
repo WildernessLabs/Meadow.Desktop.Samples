@@ -1,12 +1,11 @@
 ﻿using Meadow;
-using Meadow.Foundation;
 using Meadow.Foundation.Displays;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.ICs.IOExpanders;
+using Meadow.Peripherals.Displays;
 
 public class MeadowApp : App<Windows>
 {
-    private Ft232h _expander = new Ft232h();
+    private FtdiExpander _expander = FtdiExpanderCollection.Devices[0];
     private St7789 _display;
 
     public static async Task Main(string[] args)

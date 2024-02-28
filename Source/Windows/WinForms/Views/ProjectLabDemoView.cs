@@ -1,5 +1,6 @@
 ﻿using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
+using Meadow.Peripherals.Displays;
 using System;
 using System.Threading.Tasks;
 
@@ -92,7 +93,7 @@ namespace WinFormsMeadow.Views
         private Font8x16 font8x16 = new Font8x16();
         private Font6x8 font6x8 = new Font6x8();
 
-        public ProjectLabDemoView(IGraphicsDisplay display)
+        public ProjectLabDemoView(IPixelDisplay display)
         {
             DisplayScreen = new DisplayScreen(display)
             {

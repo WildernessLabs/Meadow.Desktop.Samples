@@ -4,7 +4,7 @@ using Meadow.Hardware;
 
 public class MeadowApp : App<Windows>
 {
-    private Ft232h _expander = new Ft232h();
+    private FtdiExpander _expander = FtdiExpanderCollection.Devices[0];
     private IDigitalOutputPort _c0;
 
     public static async Task Main(string[] args)

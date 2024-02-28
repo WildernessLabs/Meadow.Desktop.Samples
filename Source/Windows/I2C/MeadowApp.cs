@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 public class MeadowApp : App<Windows>
 {
-    private Ft232h _expander = new Ft232h();
+    private FtdiExpander _expander = FtdiExpanderCollection.Devices[0];
     private Bno055 _bno;
     private Mpu6050 _mpu;
 

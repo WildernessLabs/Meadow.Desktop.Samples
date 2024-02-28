@@ -1,5 +1,6 @@
 ﻿using Meadow;
 using Meadow.Foundation.Graphics;
+using Meadow.Peripherals.Displays;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -10,7 +11,7 @@ namespace MauiMeadow.ViewModels
     {
         private MicroGraphics graphics;
 
-        private IGraphicsDisplay _display;
+        private IPixelDisplay _display;
 
         public ICommand CountCommand { get; set; }
 
@@ -27,7 +28,7 @@ namespace MauiMeadow.ViewModels
         {
             while (_display == null)
             {
-                _display = Resolver.Services.Get<IGraphicsDisplay>();
+                _display = Resolver.Services.Get<IPixelDisplay>();
                 await Task.Delay(100);
             }
 

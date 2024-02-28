@@ -36,7 +36,7 @@ namespace AvaloniaMeadow
 
         public override Task MeadowInitialize()
         {
-            var expander = new Ft232h();
+            var expander = FtdiExpanderCollection.Devices[0];
 
             var bme680 = new Bme680(expander.CreateSpiBus(), expander.Pins.C7);
             Resolver.Services.Add(bme680);
