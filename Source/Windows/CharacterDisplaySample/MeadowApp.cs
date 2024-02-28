@@ -10,7 +10,7 @@ public class MeadowApp : App<Windows>
     {
         Console.WriteLine("Creating Outputs");
 
-        var expander = new Ft232h();
+        var expander = FtdiExpanderCollection.Devices[0];
 
         display = new CharacterDisplay
             (

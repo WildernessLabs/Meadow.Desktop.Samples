@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 public class MeadowApp : App<Meadow.Windows>
 {
-    private Ft232h _ft232h;
+    private FtdiExpander _ft232h;
     private WinFormsDisplay _display;
     private DisplayScreen _screen;
     private Amg8833 _camera;
@@ -24,7 +24,7 @@ public class MeadowApp : App<Meadow.Windows>
 
         _display = new WinFormsDisplay(320, 480);
 
-        _ft232h = new Ft232h(false);
+        _ft232h = FtdiExpanderCollection.Devices[0];
         var bus = _ft232h.CreateI2cBus();
         _camera = new Amg8833(bus);
 

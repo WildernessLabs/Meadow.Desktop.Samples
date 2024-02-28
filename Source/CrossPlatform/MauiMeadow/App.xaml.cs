@@ -20,7 +20,7 @@ namespace MauiMeadow
 
         protected Task MeadowInitialize()
         {
-            var expander = new Ft232h();
+            var expander = FtdiExpanderCollection.Devices[0];
 
             var display = new Gc9a01
             (
